@@ -21,6 +21,22 @@ export const wallBlock = (x, y) =>
     }
   );
 
+export const groundBlock = (x, y) =>
+  Bodies.rectangle(
+    x, y,
+    boundThickness, boundThickness,
+    {
+      isStatic: true,
+      render: {
+        sprite: {
+          texture: window.environmentGroundPNG,
+          xScale: 0.1,
+          yScale: 0.1,
+        }
+      }
+    }
+  );
+
 //
 // export const leftWall = () => Bodies.rectangle(
 //   boundThickness / 2, worldHeight / 2,

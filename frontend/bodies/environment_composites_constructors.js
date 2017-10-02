@@ -7,7 +7,8 @@ import {
 
 import {
   boundThickness,
-  wallBlock
+  wallBlock,
+  groundBlock
 } from './environment_bodies_constructors';
 
 // Composites.stack(xx, yy, columns, rows, columnGap, rowGap, callback)
@@ -16,12 +17,19 @@ export const leftWall = () => Composites.stack(
   0, 0,
   1, worldHeight / boundThickness,
   0, 0,
-  (x, y) => wallBlock(x, y)
+  wallBlock
 );
 
 export const rightWall = () => Composites.stack(
   worldWidth - boundThickness, 0,
   1, worldHeight / boundThickness,
   0, 0,
-  (x, y) => wallBlock(x, y)
+  wallBlock
+);
+
+export const ground = () => Composites.stack(
+  0, worldHeight - boundThickness,
+  worldWidth / boundThickness, 1,
+  0, 0,
+  groundBlock
 );
