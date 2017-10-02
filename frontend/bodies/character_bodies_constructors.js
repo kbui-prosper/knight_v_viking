@@ -1,3 +1,6 @@
 import { Bodies } from 'matter-js';
 
-// const baseCharacter = 
+const baseCharacter = (charType) => () =>
+  Bodies.rectangle(
+    
+  );
