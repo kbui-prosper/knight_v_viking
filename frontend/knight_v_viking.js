@@ -14,9 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
       element: document.querySelector(".canvas-wrapper"),
       engine,
       options: {
-        wireframeBackground: 'transparent',
+        background: 'transparent',
         width: worldWidth,
         height: worldHeight,
+        wireframes: false
       }
   });
 
