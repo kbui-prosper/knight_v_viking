@@ -16,9 +16,13 @@
 
 canvas {
   display: block;
-  margin: 20px auto;
 }
 
-body {
-  background-image: url("/public/images/background.png");
+.canvas-wrapper {
+  position: absolute;
+  left:50%;
+  top:50%;
+  transform: translate(-50%, -50%);
+  background-image: image-url("background.png");
+  background-size: contain;
 }
