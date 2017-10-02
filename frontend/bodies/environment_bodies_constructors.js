@@ -12,7 +12,11 @@ export const wallBlock = (x, y) =>
     {
       isStatic: true,
       render: {
-        fillStyle: 'red'
+        sprite: {
+          texture: window.environmentWallPNG,
+          xScale: 0.2,
+          yScale: 0.2,
+        }
       }
     }
   );

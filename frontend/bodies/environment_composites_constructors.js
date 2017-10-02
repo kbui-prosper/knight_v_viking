@@ -18,3 +18,10 @@ export const leftWall = () => Composites.stack(
   0, 0,
   (x, y) => wallBlock(x, y)
 );
+
+export const rightWall = () => Composites.stack(
+  worldWidth - boundThickness, 0,
+  1, worldHeight / boundThickness,
+  0, 0,
+  (x, y) => wallBlock(x, y)
+);
