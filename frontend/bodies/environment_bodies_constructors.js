@@ -1,7 +1,20 @@
 import { Bodies } from 'matter-js';
 import { worldWidth, worldHeight } from '../knight_v_viking';
-//
-// const boundThickness = 50;
+
+export const boundThickness = 50;
+
+export const wallBlock = (x, y) =>
+  Bodies.rectangle(
+    x, y,
+    boundThickness, boundThickness,
+    {
+      isStatic: true,
+      render: {
+        fillStyle: 'red'
+      }
+    }
+  );
+
 //
 // export const leftWall = () => Bodies.rectangle(
 //   boundThickness / 2, worldHeight / 2,

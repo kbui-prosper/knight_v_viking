@@ -1,8 +1,12 @@
 import { Engine, Render, World } from 'matter-js';
 
 import {
-  ground, leftWall, rightWall, ceiling, testBall
+  testBall
 } from './bodies/environment_bodies_constructors';
+
+import {
+  leftWall
+} from './bodies/environment_composites_constructors';
 
 export const worldWidth = 1200;
 export const worldHeight = 600;
@@ -25,11 +29,14 @@ document.addEventListener('DOMContentLoaded', () => {
     engine.world,
     [
       // ceiling(), leftWall(), rightWall(), ground(),
-      testBall()
+      leftWall(),
+      testBall(),
     ]
   );
 
   Engine.run(engine);
 
   Render.run(render);
+
+  window.leftWall = leftWall();
 });
