@@ -62,9 +62,9 @@ Each character spawns with 100 health. Game is over when either player reaches 0
 ## Implementation Timeline
 
 #### Day 1 - Monday
-- [ ] Rails server (only root route)
-- [ ] Webpack
-- [ ] Matter.js set up
+- [x] Rails server (only root route)
+- [x] Webpack
+- [x] Matter.js set up
 - [ ] Static walls
 - [ ] Background styling and wall styling
 
