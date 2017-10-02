@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: './frontend/knight_v_viking.jsx',
+  entry: './frontend/knight_v_viking.js',
   output: {
       path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
       filename: "bundle.js"
