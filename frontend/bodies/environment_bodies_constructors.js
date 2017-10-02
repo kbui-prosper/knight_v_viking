@@ -27,7 +27,16 @@ export const ground = () => Bodies.rectangle(
   {
     isStatic: true,
     render: {
-      fillStyle: '#4ECDC4',
+      fillStyle: '#4ECDC4'
     }
+  }
+);
+
+export const testBall = () => Bodies.circle(
+  worldWidth / 2, 200,
+  50,
+  {
+    render: { fillStyle: '#c0392b' },
+    restitution: 0.8
   }
 );

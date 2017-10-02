@@ -1,7 +1,7 @@
 import { Engine, Render, World } from 'matter-js';
 
 import {
-  ground, leftWall, rightWall, ceiling
+  ground, leftWall, rightWall, ceiling, testBall
 } from './bodies/environment_bodies_constructors';
 
 export const worldWidth = 1200;
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   World.add(
     engine.world,
     [
-      ceiling(), leftWall(), rightWall(), ground()
+      ceiling(), leftWall(), rightWall(), ground(), testBall()
     ]
   );
 
