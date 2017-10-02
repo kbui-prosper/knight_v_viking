@@ -33,3 +33,10 @@ export const ground = () => Composites.stack(
   0, 0,
   groundBlock
 );
+
+export const ceiling = () => Composites.stack(
+  0, 0,
+  worldWidth / boundThickness, 1,
+  0, 0,
+  wallBlock
+);

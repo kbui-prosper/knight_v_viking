@@ -5,7 +5,7 @@ import {
 } from './bodies/environment_bodies_constructors';
 
 import {
-  leftWall, rightWall, ground
+  leftWall, rightWall, ground, ceiling
 } from './bodies/environment_composites_constructors';
 
 export const worldWidth = 1200;
@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     engine.world,
     [
       // ceiling(), leftWall(), rightWall(), ground(),
+      ceiling(),
       leftWall(),
       rightWall(),
       ground(),

@@ -14,8 +14,8 @@ export const wallBlock = (x, y) =>
       render: {
         sprite: {
           texture: window.environmentWallPNG,
-          xScale: 0.2,
-          yScale: 0.2,
+          xScale: 0.11,
+          yScale: 0.11,
         }
       }
     }
