@@ -38,12 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
     Math.random() * 100,
     {
       render: { fillStyle: '#c0392b' },
-      restitution: 0.8
+      restitution: 1
     }
   );
   World.add(
     engine.world,
-    [testBall(), testBall(), testBall(), testBall(), testBall()]
+    [testBall(), testBall(), testBall(), testBall(), testBall(),
+    testBall(), testBall(), testBall(), testBall(), testBall()]
   );
   // ---------- /Test ----------
 
