@@ -65,8 +65,8 @@ Each character spawns with 100 health. Game is over when either player reaches 0
 - [x] Rails server (only root route)
 - [x] Webpack
 - [x] Matter.js set up
-- [ ] Static walls
-- [ ] Background styling and wall styling
+- [x] Static walls
+- [x] Background styling and wall styling
 
 #### Day 2 - Tuesday
 - [ ] Build character that can move horizontally and jump naturally

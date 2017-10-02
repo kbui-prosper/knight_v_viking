@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ---------- Test ----------
   const testBall = () => Bodies.circle(
-    Math.random() * worldWidth, 200,
+    Math.random() * worldWidth, Math.random() * 100 + 100,
     (Math.random() * 50) + 25,
     {
       render: { fillStyle: '#c0392b' },
