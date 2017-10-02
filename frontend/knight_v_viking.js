@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
       options: {
         wireframeBackground: 'transparent',
         width: worldWidth,
-        height: worldHeight
+        height: worldHeight,
       }
   });
 
@@ -25,4 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
   Engine.run(engine);
 
   Render.run(render);
+
+  console.log(ground().render);
 });
