@@ -36,12 +36,3 @@ export const groundBlock = (x, y) =>
       }
     }
   );
-
-export const testBall = () => Bodies.circle(
-  worldWidth / 2, 200,
-  50,
-  {
-    render: { fillStyle: '#c0392b' },
-    restitution: 0.8
-  }
-);

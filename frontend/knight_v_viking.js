@@ -1,8 +1,4 @@
-import { Engine, Render, World } from 'matter-js';
-
-import {
-  testBall
-} from './bodies/environment_bodies_constructors';
+import { Engine, Render, World, Bodies } from 'matter-js';
 
 import {
   leftWall, rightWall, ground, ceiling
@@ -37,7 +33,18 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   // ---------- Test ----------
-  World.add(engine.world, [testBall()]);
+  const testBall = () => Bodies.circle(
+    Math.random() * worldWidth, 200,
+    Math.random() * 100,
+    {
+      render: { fillStyle: '#c0392b' },
+      restitution: 0.8
+    }
+  );
+  World.add(
+    engine.world,
+    [testBall(), testBall(), testBall(), testBall(), testBall()]
+  );
   // ---------- /Test ----------
 
   Engine.run(engine);
