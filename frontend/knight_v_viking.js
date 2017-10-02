@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
   World.add(
     engine.world,
     [
-      // ceiling(), leftWall(), rightWall(), ground(),
       ceiling(),
       leftWall(),
       rightWall(),
