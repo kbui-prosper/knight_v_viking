@@ -5,6 +5,7 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
+    "matter-js": "^0.13.0",
     "webpack": "^3.6.0"
   },
   "description": "<!-- # README",
