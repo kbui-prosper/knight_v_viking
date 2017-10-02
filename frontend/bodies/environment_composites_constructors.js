@@ -13,6 +13,13 @@ import {
 
 // Composites.stack(xx, yy, columns, rows, columnGap, rowGap, callback)
 
+export const ceiling = () => Composites.stack(
+  0, 0,
+  worldWidth / boundThickness, 1,
+  0, 0,
+  wallBlock
+);
+
 export const leftWall = () => Composites.stack(
   0, 0,
   1, worldHeight / boundThickness,
@@ -32,11 +39,4 @@ export const ground = () => Composites.stack(
   worldWidth / boundThickness, 1,
   0, 0,
   groundBlock
-);
-
-export const ceiling = () => Composites.stack(
-  0, 0,
-  worldWidth / boundThickness, 1,
-  0, 0,
-  wallBlock
 );

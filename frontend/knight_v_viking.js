@@ -25,16 +25,20 @@ document.addEventListener('DOMContentLoaded', () => {
       }
   });
 
+  // Environment
   World.add(
     engine.world,
     [
       ceiling(),
       leftWall(),
       rightWall(),
-      ground(),
-      testBall(),
+      ground()
     ]
   );
+
+  // ---------- Test ----------
+  World.add(engine.world, [testBall()]);
+  // ---------- /Test ----------
 
   Engine.run(engine);
 
