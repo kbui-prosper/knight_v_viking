@@ -10,7 +10,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: [/\.jsx?$/],
+        test: [/\.js$/],
         exclude: /(node_modules)/,
         loader: 'babel-loader',
         query: {
@@ -21,7 +21,7 @@ module.exports = {
   },
   devtool: 'source-map',
   resolve: {
-    extensions: ['.js', '.jsx', '*']
+    extensions: ['.js', '*']
   },
   plugins:[
     new webpack.DefinePlugin({
