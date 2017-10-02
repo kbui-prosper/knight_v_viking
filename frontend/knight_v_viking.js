@@ -4,6 +4,10 @@ import {
   leftWall, rightWall, ground, ceiling
 } from './bodies/environment_composites_constructors';
 
+import {
+  knight, viking
+} from './bodies/characters_constructors';
+
 export const worldWidth = 1200;
 export const worldHeight = 600;
 
@@ -32,6 +36,15 @@ document.addEventListener('DOMContentLoaded', () => {
     ]
   );
 
+  // Characters
+  World.add(
+    engine.world,
+    [
+      knight(),
+      viking()
+    ]
+  );
+
   // ---------- Test ----------
   const testBall = () => Bodies.circle(
     Math.random() * worldWidth, Math.random() * 100 + 100,
@@ -43,8 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
   );
   World.add(
     engine.world,
-    [testBall(), testBall(), testBall(), testBall(), testBall(),
-    testBall(), testBall(), testBall(), testBall(), testBall()]
+    [testBall(), testBall(), testBall(), testBall(), testBall()]
   );
   // ---------- /Test ----------
 
