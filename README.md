@@ -80,6 +80,7 @@ Each character spawns with 100 health. Game is over when either player reaches 0
 
 #### Day 4 - Thursday
 - [ ] Add health loss interaction when a character touches enemy weapon
+- [ ] Add health loss animation
 - [ ] Add winning condition and add winning notification
 
 #### Day 5 - Friday
