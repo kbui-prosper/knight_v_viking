@@ -20,7 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
   });
 
-  World.add(engine.world, [ground(), leftWall(), rightWall(), ceiling()]);
+  World.add(
+    engine.world,
+    [
+      ground(), leftWall(), rightWall(), ceiling()
+    ]
+  );
 
   Engine.run(engine);
 
