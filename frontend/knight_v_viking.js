@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const render = Render.create({
       element: document.querySelector("body"),
       engine,
-
+      options: { wireframeBackground: 'transparent' }
   });
 
   const ground = Bodies.rectangle(400, 610, 800, 100, { isStatic: true });
@@ -19,4 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
   Engine.run(engine);
 
   Render.run(render);
+
+  window.render = render;
 });
