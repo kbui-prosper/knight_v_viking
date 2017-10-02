@@ -24,13 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
   World.add(
     engine.world,
     [
-      ceiling(), leftWall(), rightWall(), ground(), testBall()
+      // ceiling(), leftWall(), rightWall(), ground(),
+      testBall()
     ]
   );
 
   Engine.run(engine);
 
   Render.run(render);
-
-  console.log(ground().render);
 });
