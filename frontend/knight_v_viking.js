@@ -1,4 +1,11 @@
-import { Engine, Render, World, Bodies } from 'matter-js';
+import { Engine, Render, World } from 'matter-js';
+
+import {
+  ground, leftWall, rightWall, ceiling
+} from './bodies/environment_constructors';
+
+export const worldWidth = 1200;
+export const worldHeight = 600;
 
 document.addEventListener('DOMContentLoaded', () => {
   const engine = Engine.create();
@@ -7,22 +14,15 @@ document.addEventListener('DOMContentLoaded', () => {
       element: document.querySelector(".canvas-wrapper"),
       engine,
       options: {
-        wireframeBackground: 'rgba(255, 0, 0, 0.3)',
-        width: 1200,
-        height: 600
+        wireframeBackground: 'transparent',
+        width: worldWidth,
+        height: worldHeight
       }
   });
 
-  const ground = Bodies.rectangle(400, 610, 800, 100, { isStatic: true });
-  const leftWall = Bodies.rectangle(0, 300, 100, 600, { isStatic: true });
-  const rightWall = Bodies.rectangle(800, 300, 100, 600, { isStatic: true });
-  const ceiling = Bodies.rectangle(400, 0, 800, 100, { isStatic: true });
-
-  World.add(engine.world, [ground, leftWall, rightWall, ceiling]);
+  World.add(engine.world, [ground(), leftWall(), rightWall(), ceiling()]);
 
   Engine.run(engine);
 
   Render.run(render);
-
-  window.render = render;
 });
