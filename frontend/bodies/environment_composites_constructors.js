@@ -10,6 +10,8 @@ import {
   wallBlock
 } from './environment_bodies_constructors';
 
+// Composites.stack(xx, yy, columns, rows, columnGap, rowGap, callback)
+
 export const leftWall = () => Composites.stack(
   0, 0,
   1, worldHeight / boundThickness,

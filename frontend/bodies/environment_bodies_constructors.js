@@ -3,6 +3,8 @@ import { worldWidth, worldHeight } from '../knight_v_viking';
 
 export const boundThickness = 50;
 
+// Bodies.rectangle(x, y, width, height, [options])
+
 export const wallBlock = (x, y) =>
   Bodies.rectangle(
     x, y,
