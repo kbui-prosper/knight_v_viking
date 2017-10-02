@@ -56,7 +56,7 @@ Each character spawns with 100 health. Game is over when either player reaches 0
 
 ## Technology
 
-1. __Matter.js__ - Well developed javascript physics engine that allow for realistic physics
+1. __Matter.js__ - Javascript physics engine that allow for realistic physics
 2. __Vanilla Javascript__ - Used to build game logic
 
 ## Implementation Timeline
