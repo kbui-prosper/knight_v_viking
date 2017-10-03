@@ -15,9 +15,9 @@ window.viking.keyMap = {
 };
 
 class BaseCharacter {
-  constructor (charType) {
+  constructor (charType, faceDirection) {
     this.charType = charType;
-    this.faceDirection = 'left';
+    this.faceDirection = faceDirection;
     this.body = Bodies.rectangle(
       Math.random() * 800 + 100, 300,
       50, 90,
@@ -139,12 +139,12 @@ class BaseCharacter {
 
 export class Knight extends BaseCharacter {
   constructor () {
-    super(window.knight);
+    super(window.knight, 'right');
   }
 }
 
 export class Viking extends BaseCharacter {
   constructor () {
-    super(window.viking);
+    super(window.viking, 'left');
   }
 }
