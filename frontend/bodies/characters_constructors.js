@@ -74,7 +74,7 @@ class BaseCharacter {
     const { left, right, attack, jump } = this.charType.keyMap;
     switch (e.keyCode) {
       case left:
-        console.log('left');
+        this.goLeft();
         break;
       case right:
         console.log('right');
@@ -86,6 +86,10 @@ class BaseCharacter {
         console.log('jump');
         break;
     }
+  }
+
+  goLeft () {
+    this.body.force = { x: -0.2, y: 0 };
   }
 
   handleKeyUp (e) {
