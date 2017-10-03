@@ -29,14 +29,14 @@ class BaseCharacter {
             texture: charType.idlePNGs[this.faceDirection][0],
             xScale: 0.1,
             yScale: 0.1,
-            xOffset: -0.2,
+            xOffset: this.faceDirection === 'right' ? -0.2 : 0.2,
             yOffset: -0.02
           }
         }
       }
     );
 
-    this.startIdle();
+    // this.startIdle();
     this.setKeyListeners();
   }
 
@@ -47,11 +47,15 @@ class BaseCharacter {
 
   nextIdle () {
     const { idlePNGs } = this.charType;
+
     this.idlePNGsIndex =
     (this.idlePNGsIndex + 1) % idlePNGs[this.faceDirection].length;
 
     this.body.render.sprite.texture =
     idlePNGs[this.faceDirection][this.idlePNGsIndex];
+
+    this.body.render.sprite.xOffset =
+    this.faceDirection === 'right' ? -0.2 : 0.2;
   }
 
   clearIdle () {
