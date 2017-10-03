@@ -68,6 +68,9 @@ class BaseCharacter {
   }
 
   handleKeyDown (e) {
+    if (e.repeat) {
+      return;
+    }
     const { left, right, attack, jump } = this.charType.keyMap;
     switch (e.keyCode) {
       case left:
