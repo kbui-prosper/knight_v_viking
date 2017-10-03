@@ -39,3 +39,15 @@ export const groundBlock = (x, y) =>
       }
     }
   );
+
+export const invisibleGround = () =>
+  Bodies.rectangle(
+    worldWidth / 2, worldHeight - boundThickness - 1,
+    worldWidth, 1,
+    {
+      isStatic: true,
+      render: {
+        fillStyle: 'transparent'
+      }
+    }
+  );
