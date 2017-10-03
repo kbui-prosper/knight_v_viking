@@ -92,7 +92,7 @@ class BaseCharacter {
     this.leftInterval = window.setInterval(
       () => {
         const { x, y } = this.body.position;
-        this.body.position = { x: x - 0.5, y };
+        this.body.position = { x: x - 0.1, y };
       },
       10
     );
@@ -102,7 +102,7 @@ class BaseCharacter {
     this.rightInterval = window.setInterval(
       () => {
         const { x, y } = this.body.position;
-        this.body.position = { x: x + 0.5, y };
+        this.body.position = { x: x + 0.1, y };
       },
       10
     );
