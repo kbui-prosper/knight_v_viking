@@ -14,7 +14,7 @@ window.viking.keyMap = {
   jump: 221, //']'
 };
 
-const wtf = 0.5;
+const wtf = 0.45;
 
 class BaseCharacter {
   constructor (charType, faceDirection) {
@@ -27,6 +27,7 @@ class BaseCharacter {
       {
         inertia: 'Infinity',
         friction: 0,
+        restitution: 0.8,
         render: {
           lineWidth: 5,
           sprite: {
