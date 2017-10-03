@@ -1,17 +1,17 @@
 import { Bodies } from 'matter-js';
 
 window.knight.keyMap = {
-  left: 'q',
-  right: 'w',
-  attack: 'x',
-  jump: 'c'
+  left: 81, //'q',
+  right: 87, //'w'
+  attack: 88, //'x'
+  jump: 67, //'c'
 };
 
 window.viking.keyMap = {
-  left: ',',
-  right: '.',
-  attack: '[',
-  jump: ']'
+  left: 188, //','
+  right: 190, //'.'
+  attack: 219, //'['
+  jump: 221, //']'
 };
 
 class BaseCharacter {
@@ -36,7 +36,7 @@ class BaseCharacter {
     );
 
     this.startIdle();
-    this.setKeyMaps();
+    this.setKeyListeners();
   }
 
   startIdle () {
@@ -56,15 +56,51 @@ class BaseCharacter {
     window.clearInterval(this.idleInterval);
   }
 
-  setKeyMaps () {
+  setKeyListeners () {
     window.addEventListener(
-      "keypress",
-      e => this.handleKeyPress(e.keyCode)
+      "keydown",
+      e => this.handleKeyDown(e)
+    );
+    window.addEventListener(
+      "keyup",
+      e => this.handleKeyUp(e)
     );
   }
 
-  handleKeyPress (keycode) {
-    
+  handleKeyDown (e) {
+    const { left, right, attack, jump } = this.charType.keyMap;
+    switch (e.keyCode) {
+      case left:
+        console.log('left');
+        break;
+      case right:
+        console.log('right');
+        break;
+      case attack:
+        console.log('attack');
+        break;
+      case jump:
+        console.log('jump');
+        break;
+    }
+  }
+
+  handleKeyUp (e) {
+    const { left, right, attack, jump } = this.charType.keyMap;
+    switch (e.keyCode) {
+      case left:
+        console.log('left no more');
+        break;
+      case right:
+        console.log('right no more');
+        break;
+      case attack:
+        console.log('attack no more');
+        break;
+      case jump:
+        console.log('jump no more');
+        break;
+    }
   }
 }
 
