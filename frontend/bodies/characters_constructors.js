@@ -20,20 +20,25 @@ class BaseCharacter {
       }
     );
 
-    // this.startIdle();
+    this.startIdle();
   }
 
-  // startIdle () {
-  //   const idlePNGs = this.charType.idlePNGs;
-  //   let index = 0;
-  //   const nextIdle = () => {
-  //
-  //   };
-  // }
-  //
-  // nextIdle () {
-  //
-  // }
+  startIdle () {
+    this.idlePNGsIndex = 0;
+    this.idleInterval = window.setInterval(() => this.nextIdle(), 400);
+  }
+
+  nextIdle () {
+    this.idlePNGsIndex =
+    (this.idlePNGsIndex + 1) % this.charType.idlePNGs.length;
+
+    this.body.render.sprite.texture =
+    this.charType.idlePNGs[this.idlePNGsIndex];
+  }
+
+  clearIdle () {
+    window.clearInterval(this.idleInterval);
+  }
 }
 
 export class Knight extends BaseCharacter {
