@@ -1,4 +1,4 @@
-import { Composites } from 'matter-js';
+import { Composites, Composite } from 'matter-js';
 
 import {
   worldWidth,
