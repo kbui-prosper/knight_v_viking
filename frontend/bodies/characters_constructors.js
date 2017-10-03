@@ -96,6 +96,7 @@ class BaseCharacter {
   }
 
   goLeft () {
+    this.stopRight();
     this.leftInterval = window.setInterval(
       () => {
         this.adjustFriction(0);
@@ -117,6 +118,7 @@ class BaseCharacter {
   }
 
   goRight () {
+    this.stopLeft();
     this.rightInterval = window.setInterval(
       () => {
         this.adjustFriction(0);
