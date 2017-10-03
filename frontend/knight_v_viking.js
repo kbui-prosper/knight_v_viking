@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     (Math.random() * 15) + 15,
     {
       render: { fillStyle: '#c0392b' },
-      restitution: 0.8
+      restitution: 1.2
     }
   );
   World.add(
