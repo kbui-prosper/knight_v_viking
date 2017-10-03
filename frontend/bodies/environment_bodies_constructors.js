@@ -13,12 +13,12 @@ export const wallBlock = (x, y) =>
       isStatic: true,
       type: 'worldBoundary',
       render: {
-        fillStyle: 'brown',
-        // sprite: {
-        //   texture: window.environmentWallPNG,
-        //   xScale: 0.11,
-        //   yScale: 0.11,
-        // }
+        // fillStyle: 'brown',
+        sprite: {
+          texture: window.environmentWallPNG,
+          xScale: 0.11,
+          yScale: 0.11,
+        }
       }
     }
   );

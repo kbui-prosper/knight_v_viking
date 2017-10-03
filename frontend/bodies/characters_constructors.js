@@ -14,8 +14,6 @@ window.viking.keyMap = {
   jump: 221, //']'
 };
 
-const wtf = 0.45;
-
 class BaseCharacter {
   constructor (charType, faceDirection) {
     this.charType = charType;
@@ -98,38 +96,54 @@ class BaseCharacter {
 
   goLeft () {
     this.leftInterval = window.setInterval(
+      // () => {
+      //   const { x, y } = this.body.position;
+      //   this.body.position = { x: x - 0.1, y };
+      //   console.log('WENT LEFT 0.1');
+      // },
       () => {
-        const { x, y } = this.body.position;
-        this.body.position = { x: x - 0.1, y };
+        this.body.force.x = -0.01;
       },
-      10
+      50
     );
-    this.faceDirection = 'left';
 
-    const { sprite } = this.body.render;
+    if (this.faceDirection === 'right') {
+      console.log('lel left');
+      this.faceDirection = 'left';
 
-    sprite.texture =
-    this.charType.idlePNGs[this.faceDirection][this.idlePNGsIndex];
+      const { sprite } = this.body.render;
 
-    sprite.xOffset = 0.2 + wtf;
+      sprite.texture =
+      this.charType.idlePNGs[this.faceDirection][this.idlePNGsIndex];
+
+      sprite.xOffset = 0.4;
+    }
   }
 
   goRight () {
     this.rightInterval = window.setInterval(
+      // () => {
+      //   const { x, y } = this.body.position;
+      //   this.body.position = { x: x + 0.1, y };
+      //   console.log('WENT RIGHT 0.1');
+      // },
       () => {
-        const { x, y } = this.body.position;
-        this.body.position = { x: x + 0.1, y };
+        this.body.force.x = 0.01;
       },
-      10
+      50
     );
-    this.faceDirection = 'right';
 
-    const { sprite } = this.body.render;
+    if (this.faceDirection === 'left') {
+      console.log('lel right');
+      this.faceDirection = 'right';
 
-    sprite.texture =
-    this.charType.idlePNGs[this.faceDirection][this.idlePNGsIndex];
+      const { sprite } = this.body.render;
 
-    sprite.xOffset = -0.2 + wtf;
+      sprite.texture =
+      this.charType.idlePNGs[this.faceDirection][this.idlePNGsIndex];
+
+      sprite.xOffset = -0.4;
+    }
   }
 
   jump () {
