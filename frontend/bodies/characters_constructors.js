@@ -148,7 +148,7 @@ class BaseCharacter {
         console.log('attack no more');
         break;
       case jump:
-        console.log('jump no more');
+        // console.log('jump no more');
         break;
     }
   }
