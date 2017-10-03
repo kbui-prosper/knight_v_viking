@@ -52,8 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   // test
-  // window.setInterval(() => addBalls(engine, 25), 7000);
-  addBalls(engine, 200);
+  window.setInterval(() => addBalls(engine, 25), 6000);
+  // addBalls(engine, 200);
   // test
 
   Engine.run(engine);

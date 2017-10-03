@@ -14,6 +14,8 @@ window.viking.keyMap = {
   jump: 221, //']'
 };
 
+const wtf = 0.5;
+
 class BaseCharacter {
   constructor (charType, faceDirection) {
     this.charType = charType;
@@ -86,7 +88,6 @@ class BaseCharacter {
         this.goRight();
         break;
       case attack:
-        console.log('attack');
         break;
       case jump:
         this.jump();
@@ -96,11 +97,6 @@ class BaseCharacter {
 
   goLeft () {
     this.leftInterval = window.setInterval(
-      // () => {
-      //   const { x, y } = this.body.position;
-      //   this.body.position = { x: x - 0.1, y };
-      //   console.log('WENT LEFT 0.1');
-      // },
       () => {
         this.body.force.x = -0.01;
       },
@@ -108,7 +104,6 @@ class BaseCharacter {
     );
 
     if (this.faceDirection === 'right') {
-      console.log('lel left');
       this.faceDirection = 'left';
 
       const { sprite } = this.body.render;
@@ -116,17 +111,12 @@ class BaseCharacter {
       sprite.texture =
       this.charType.idlePNGs[this.faceDirection][this.idlePNGsIndex];
 
-      sprite.xOffset = 0.4;
+      sprite.xOffset = 0.2 + wtf;
     }
   }
 
   goRight () {
     this.rightInterval = window.setInterval(
-      // () => {
-      //   const { x, y } = this.body.position;
-      //   this.body.position = { x: x + 0.1, y };
-      //   console.log('WENT RIGHT 0.1');
-      // },
       () => {
         this.body.force.x = 0.01;
       },
@@ -134,7 +124,6 @@ class BaseCharacter {
     );
 
     if (this.faceDirection === 'left') {
-      console.log('lel right');
       this.faceDirection = 'right';
 
       const { sprite } = this.body.render;
@@ -142,7 +131,7 @@ class BaseCharacter {
       sprite.texture =
       this.charType.idlePNGs[this.faceDirection][this.idlePNGsIndex];
 
-      sprite.xOffset = -0.4;
+      sprite.xOffset = -0.2 + wtf;
     }
   }
 
@@ -160,10 +149,8 @@ class BaseCharacter {
         window.clearInterval(this.rightInterval);
         break;
       case attack:
-        console.log('attack no more');
         break;
       case jump:
-        // console.log('jump no more');
         break;
     }
   }
