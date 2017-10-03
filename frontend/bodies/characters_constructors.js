@@ -57,6 +57,13 @@ class BaseCharacter {
   }
 
   setKeyMaps () {
+    window.addEventListener(
+      "keypress",
+      e => this.handleKeyPress(e.keyCode)
+    );
+  }
+
+  handleKeyPress (keycode) {
     
   }
 }
