@@ -159,6 +159,8 @@ class BaseCharacter {
 export class Knight extends BaseCharacter {
   constructor () {
     super(window.knight, 'right');
+
+    window.k = this.body;
   }
 }
 
