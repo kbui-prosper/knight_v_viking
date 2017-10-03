@@ -27,7 +27,7 @@ class BaseCharacter {
       {
         inertia: 'Infinity',
         friction: 0,
-        restitution: 0.8,
+        // restitution: 0.8,
         render: {
           lineWidth: 5,
           sprite: {
