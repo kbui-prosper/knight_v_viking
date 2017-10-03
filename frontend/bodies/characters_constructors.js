@@ -1,15 +1,23 @@
 import { Bodies } from 'matter-js';
 
-const baseCharacter = (charType) => () =>
-  Bodies.rectangle(
+const baseCharacter = (charType) => () => {
+  const character = Bodies.rectangle(
     300, 300,
-    50, 100,
+    75, 100,
     {
       render: {
-        fillStyle: 'blue'
+        lineWidth: 5,
+        sprite: {
+          texture: charType.idlePNGs[0],
+          xScale: 0.12,
+          yScale: 0.12
+        }
       }
     }
   );
 
-export const knight = baseCharacter(null);
-export const viking = baseCharacter(null);
+  return character;
+};
+
+export const knight = baseCharacter(window.knight);
+export const viking = baseCharacter(window.viking);
