@@ -14,10 +14,13 @@ window.viking.keyMap = {
   jump: 221, //']'
 };
 
+const wtf = 0.5;
+
 class BaseCharacter {
   constructor (charType, faceDirection) {
     this.charType = charType;
     this.faceDirection = faceDirection;
+
     this.body = Bodies.rectangle(
       Math.random() * 800 + 100, 300,
       50, 90,
@@ -92,27 +95,39 @@ class BaseCharacter {
   }
 
   goLeft () {
-    this.leftInterval = window.setInterval(
-      () => {
-        const { x, y } = this.body.position;
-        this.body.position = { x: x - 0.1, y };
-      },
-      10
-    );
+    // this.leftInterval = window.setInterval(
+    //   () => {
+    //     const { x, y } = this.body.position;
+    //     this.body.position = { x: x - 0.1, y };
+    //   },
+    //   10
+    // );
     this.faceDirection = 'left';
-    this.body.render.sprite.xOffset = 0.2;
+
+    const { sprite } = this.body.render;
+
+    sprite.texture =
+    this.charType.idlePNGs[this.faceDirection][this.idlePNGsIndex];
+
+    sprite.xOffset = 0.2 + wtf;
   }
 
   goRight () {
-    this.rightInterval = window.setInterval(
-      () => {
-        const { x, y } = this.body.position;
-        this.body.position = { x: x + 0.1, y };
-      },
-      10
-    );
+    // this.rightInterval = window.setInterval(
+    //   () => {
+    //     const { x, y } = this.body.position;
+    //     this.body.position = { x: x + 0.1, y };
+    //   },
+    //   10
+    // );
     this.faceDirection = 'right';
-    this.body.render.sprite.xOffset = -0.2;
+
+    const { sprite } = this.body.render;
+
+    sprite.texture =
+    this.charType.idlePNGs[this.faceDirection][this.idlePNGsIndex];
+
+    sprite.xOffset = -0.2 + wtf;
   }
 
   jump () {
