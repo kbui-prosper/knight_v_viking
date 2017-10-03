@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---------- Test ----------
   const testBall = () => Bodies.circle(
     Math.random() * worldWidth, Math.random() * 100 + 100,
-    (Math.random() * 25) + 25,
+    (Math.random() * 15) + 15,
     {
       render: { fillStyle: '#c0392b' },
       restitution: 1
@@ -57,6 +57,21 @@ document.addEventListener('DOMContentLoaded', () => {
   World.add(
     engine.world,
     [
+      testBall(), testBall(), testBall(), testBall(), testBall(),
+      testBall(), testBall(), testBall(), testBall(), testBall(),
+      testBall(), testBall(), testBall(), testBall(), testBall(),
+      testBall(), testBall(), testBall(), testBall(), testBall(),
+      testBall(), testBall(), testBall(), testBall(), testBall(),
+      testBall(), testBall(), testBall(), testBall(), testBall(),
+      testBall(), testBall(), testBall(), testBall(), testBall(),
+      testBall(), testBall(), testBall(), testBall(), testBall(),
+      testBall(), testBall(), testBall(), testBall(), testBall(),
+      testBall(), testBall(), testBall(), testBall(), testBall(),
+      testBall(), testBall(), testBall(), testBall(), testBall(),
+      testBall(), testBall(), testBall(), testBall(), testBall(),
+      testBall(), testBall(), testBall(), testBall(), testBall(),
+      testBall(), testBall(), testBall(), testBall(), testBall(),
+      testBall(), testBall(), testBall(), testBall(), testBall(),
       testBall(), testBall(), testBall(), testBall(), testBall(),
       testBall(), testBall(), testBall(), testBall(), testBall(),
       testBall(), testBall(), testBall(), testBall(), testBall(),

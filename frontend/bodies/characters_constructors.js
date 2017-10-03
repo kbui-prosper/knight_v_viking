@@ -2,15 +2,16 @@ import { Bodies } from 'matter-js';
 
 const baseCharacter = (charType) => () => {
   const character = Bodies.rectangle(
-    300, 300,
-    75, 100,
+    Math.random() * 400 + 100, 300,
+    50, 100,
     {
       render: {
         lineWidth: 5,
         sprite: {
           texture: charType.idlePNGs[0],
-          xScale: 0.12,
-          yScale: 0.12
+          xScale: 0.1,
+          yScale: 0.1,
+          xOffset: -0.2
         }
       }
     }
