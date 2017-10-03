@@ -5,7 +5,7 @@ import {
 } from './bodies/environment_composites_constructors';
 
 import {
-  knight, viking
+  Knight, Viking
 } from './bodies/characters_constructors';
 
 export const worldWidth = 1200;
@@ -37,11 +37,13 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   // Characters
+  const knight = new Knight();
+  const viking = new Viking();
   World.add(
     engine.world,
     [
-      knight(),
-      viking()
+      knight.body,
+      viking.body
     ]
   );
 
