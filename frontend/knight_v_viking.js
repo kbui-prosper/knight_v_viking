@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   // test
-  addBalls(engine, 200);
+  window.setInterval(() => addBalls(engine, 25), 7000)
   // test
 
   Engine.run(engine);
