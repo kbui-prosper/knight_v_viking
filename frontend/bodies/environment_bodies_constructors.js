@@ -11,6 +11,7 @@ export const wallBlock = (x, y) =>
     boundThickness, boundThickness,
     {
       isStatic: true,
+      type: 'worldBoundary',
       render: {
         sprite: {
           texture: window.environmentWallPNG,
@@ -27,6 +28,7 @@ export const groundBlock = (x, y) =>
     boundThickness, boundThickness,
     {
       isStatic: true,
+      type: 'worldBoundary',
       render: {
         sprite: {
           texture: window.environmentGroundPNG,
