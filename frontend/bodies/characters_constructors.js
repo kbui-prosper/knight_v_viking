@@ -29,14 +29,14 @@ class BaseCharacter {
             texture: charType.idlePNGs[this.faceDirection][0],
             xScale: 0.1,
             yScale: 0.1,
-            xOffset: this.faceDirection === 'right' ? -0.2 : 0.2,
+            xOffset: faceDirection === 'right' ? -0.2 : 0.2,
             yOffset: -0.02
           }
         }
       }
     );
 
-    // this.startIdle();
+    this.startIdle();
     this.setKeyListeners();
   }
 
@@ -53,9 +53,6 @@ class BaseCharacter {
 
     this.body.render.sprite.texture =
     idlePNGs[this.faceDirection][this.idlePNGsIndex];
-
-    this.body.render.sprite.xOffset =
-    this.faceDirection === 'right' ? -0.2 : 0.2;
   }
 
   clearIdle () {
@@ -102,6 +99,8 @@ class BaseCharacter {
       },
       10
     );
+    this.faceDirection = 'left';
+    this.body.render.sprite.xOffset = 0.2;
   }
 
   goRight () {
@@ -112,6 +111,8 @@ class BaseCharacter {
       },
       10
     );
+    this.faceDirection = 'right';
+    this.body.render.sprite.xOffset = -0.2;
   }
 
   jump () {
