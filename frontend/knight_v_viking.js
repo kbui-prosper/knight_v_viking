@@ -8,6 +8,10 @@ import {
   Knight, Viking
 } from './bodies/characters_constructors';
 
+//test
+import { addBalls } from './test/balls.js';
+//test
+
 export const worldWidth = 1200;
 export const worldHeight = 600;
 
@@ -47,42 +51,9 @@ document.addEventListener('DOMContentLoaded', () => {
     ]
   );
 
-  // ---------- Test ----------
-  const testBall = () => Bodies.circle(
-    Math.random() * worldWidth, Math.random() * 100 + 100,
-    (Math.random() * 15) + 15,
-    {
-      render: { fillStyle: '#c0392b' },
-      restitution: 1.2
-    }
-  );
-  World.add(
-    engine.world,
-    [
-      // testBall(), testBall(), testBall(), testBall(), testBall(),
-      // testBall(), testBall(), testBall(), testBall(), testBall(),
-      // testBall(), testBall(), testBall(), testBall(), testBall(),
-      // testBall(), testBall(), testBall(), testBall(), testBall(),
-      // testBall(), testBall(), testBall(), testBall(), testBall(),
-      // testBall(), testBall(), testBall(), testBall(), testBall(),
-      // testBall(), testBall(), testBall(), testBall(), testBall(),
-      // testBall(), testBall(), testBall(), testBall(), testBall(),
-      // testBall(), testBall(), testBall(), testBall(), testBall(),
-      // testBall(), testBall(), testBall(), testBall(), testBall(),
-      // testBall(), testBall(), testBall(), testBall(), testBall(),
-      // testBall(), testBall(), testBall(), testBall(), testBall(),
-      // testBall(), testBall(), testBall(), testBall(), testBall(),
-      // testBall(), testBall(), testBall(), testBall(), testBall(),
-      // testBall(), testBall(), testBall(), testBall(), testBall(),
-      // testBall(), testBall(), testBall(), testBall(), testBall(),
-      // testBall(), testBall(), testBall(), testBall(), testBall(),
-      // testBall(), testBall(), testBall(), testBall(), testBall(),
-      // testBall(), testBall(), testBall(), testBall(), testBall(),
-      // testBall(), testBall(), testBall(), testBall(), testBall(),
-      testBall(), testBall(), testBall(), testBall(), testBall()
-    ]
-  );
-  // ---------- /Test ----------
+  // test
+  addBalls(engine, 200);
+  // test
 
   Engine.run(engine);
 

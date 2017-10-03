@@ -4,7 +4,7 @@ class BaseCharacter {
   constructor (charType) {
     this.charType = charType;
     this.body = Bodies.rectangle(
-      Math.random() * 400 + 100, 300,
+      Math.random() * 800 + 100, 300,
       50, 90,
       {
         render: {
