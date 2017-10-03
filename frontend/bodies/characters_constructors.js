@@ -1,5 +1,19 @@
 import { Bodies } from 'matter-js';
 
+window.knight.keyMap = {
+  left: 'q',
+  right: 'w',
+  attack: 'x',
+  jump: 'c'
+};
+
+window.viking.keyMap = {
+  left: ',',
+  right: '.',
+  attack: '[',
+  jump: ']'
+};
+
 class BaseCharacter {
   constructor (charType) {
     this.charType = charType;
@@ -7,6 +21,7 @@ class BaseCharacter {
       Math.random() * 800 + 100, 300,
       50, 90,
       {
+        inertia: 'Infinity',
         render: {
           lineWidth: 5,
           sprite: {
@@ -21,6 +36,7 @@ class BaseCharacter {
     );
 
     this.startIdle();
+    this.setKeyMaps();
   }
 
   startIdle () {
@@ -38,6 +54,10 @@ class BaseCharacter {
 
   clearIdle () {
     window.clearInterval(this.idleInterval);
+  }
+
+  setKeyMaps () {
+    
   }
 }
 
