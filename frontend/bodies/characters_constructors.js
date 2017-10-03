@@ -96,6 +96,8 @@ class BaseCharacter {
   }
 
   goLeft () {
+    this.adjustFriction(0);
+
     this.leftInterval = window.setInterval(
       () => {
         this.body.force.x = -0.01;
@@ -116,6 +118,8 @@ class BaseCharacter {
   }
 
   goRight () {
+    this.adjustFriction(0);
+
     this.rightInterval = window.setInterval(
       () => {
         this.body.force.x = 0.01;
@@ -135,6 +139,10 @@ class BaseCharacter {
     }
   }
 
+  adjustFriction (newValue) {
+    this.body.friction = newValue;
+  }
+
   jump () {
     this.body.force = { x: 0, y: -0.2 };
   }
@@ -144,9 +152,11 @@ class BaseCharacter {
     switch (e.keyCode) {
       case left:
         window.clearInterval(this.leftInterval);
+        this.adjustFriction(0.5);
         break;
       case right:
         window.clearInterval(this.rightInterval);
+        this.adjustFriction(0.5);
         break;
       case attack:
         break;
