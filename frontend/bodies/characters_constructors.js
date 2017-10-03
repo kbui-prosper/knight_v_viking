@@ -77,29 +77,49 @@ class BaseCharacter {
         this.goLeft();
         break;
       case right:
-        console.log('right');
+        this.goRight();
         break;
       case attack:
         console.log('attack');
         break;
       case jump:
-        console.log('jump');
+        this.jump();
         break;
     }
   }
 
   goLeft () {
-    this.body.force = { x: -0.2, y: 0 };
+    this.leftInterval = window.setInterval(
+      () => {
+        const { x, y } = this.body.position;
+        this.body.position = { x: x - 0.5, y };
+      },
+      10
+    );
+  }
+
+  goRight () {
+    this.rightInterval = window.setInterval(
+      () => {
+        const { x, y } = this.body.position;
+        this.body.position = { x: x + 0.5, y };
+      },
+      10
+    );
+  }
+
+  jump () {
+    this.body.force = { x: 0, y: -0.2 };
   }
 
   handleKeyUp (e) {
     const { left, right, attack, jump } = this.charType.keyMap;
     switch (e.keyCode) {
       case left:
-        console.log('left no more');
+        window.clearInterval(this.leftInterval);
         break;
       case right:
-        console.log('right no more');
+        window.clearInterval(this.rightInterval);
         break;
       case attack:
         console.log('attack no more');
