@@ -26,6 +26,7 @@ class BaseCharacter {
       50, 90,
       {
         inertia: 'Infinity',
+        friction: 0,
         render: {
           lineWidth: 5,
           sprite: {
@@ -95,13 +96,13 @@ class BaseCharacter {
   }
 
   goLeft () {
-    // this.leftInterval = window.setInterval(
-    //   () => {
-    //     const { x, y } = this.body.position;
-    //     this.body.position = { x: x - 0.1, y };
-    //   },
-    //   10
-    // );
+    this.leftInterval = window.setInterval(
+      () => {
+        const { x, y } = this.body.position;
+        this.body.position = { x: x - 0.1, y };
+      },
+      10
+    );
     this.faceDirection = 'left';
 
     const { sprite } = this.body.render;
@@ -113,13 +114,13 @@ class BaseCharacter {
   }
 
   goRight () {
-    // this.rightInterval = window.setInterval(
-    //   () => {
-    //     const { x, y } = this.body.position;
-    //     this.body.position = { x: x + 0.1, y };
-    //   },
-    //   10
-    // );
+    this.rightInterval = window.setInterval(
+      () => {
+        const { x, y } = this.body.position;
+        this.body.position = { x: x + 0.1, y };
+      },
+      10
+    );
     this.faceDirection = 'right';
 
     const { sprite } = this.body.render;
