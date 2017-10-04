@@ -25,7 +25,7 @@ class BaseCharacter {
     this.onGround = false;
     this.moving = false;
     this.engine = engine;
-    this.Weapon = Sword;
+    this.Weapon = charType === window.knight ? Sword : Axe;
 
     this.body = Bodies.rectangle(
       Math.random() * 800 + 100, 300,
