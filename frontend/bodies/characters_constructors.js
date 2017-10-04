@@ -20,7 +20,6 @@ class BaseCharacter {
   constructor (charType, faceDirection) {
     this.charType = charType;
     this.faceDirection = faceDirection;
-    this.onWall = false;
     this.onGround = false;
 
     this.body = Bodies.rectangle(
