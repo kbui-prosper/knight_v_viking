@@ -66,10 +66,13 @@ class BaseCharacter {
       sprite.xOffset = this.faceDirection === 'left' ?
                        0.1 + wtf :
                        -0.1 + wtf;
+      sprite.yOffset = -0.1 + wtf;
     } else {
       sprite.xOffset = this.faceDirection === 'left' ?
                        0.2 + wtf :
                        -0.2 + wtf;
+      sprite.yOffset = -0.02 + wtf;
+
       if(this.moving) {
         pngs = this.charType.walkPNGs;
       } else {
