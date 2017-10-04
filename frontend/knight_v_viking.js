@@ -8,7 +8,7 @@ import {
   Knight, Viking
 } from './bodies/characters_constructors';
 
-import collisionEventHandlers from './collision_event_handlers';
+import collisionEventHandlers from './collision/collision_event_handlers';
 
 //test
 import { addBalls } from './test/balls.js';
