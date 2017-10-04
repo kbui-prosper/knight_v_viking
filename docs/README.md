@@ -69,8 +69,8 @@ Each character spawns with 100 health. Game is over when either player reaches 0
 - [x] Background styling and wall styling
 
 #### Day 2 - Tuesday
-- [ ] Build character that can move horizontally and jump naturally
-- [ ] Style character movement animation and jump movement animation
+- [x] Build character that can move horizontally and jump naturally
+- [x] Style character movement animation and jump movement animation
 - [x] Make sure that character can be reused (2 players)
 
 #### Day 3 - Wednesday

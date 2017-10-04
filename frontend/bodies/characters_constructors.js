@@ -161,7 +161,6 @@ class BaseCharacter {
 
   clearFriction () {
     this.body.friction = 0;
-    console.log(this.body);
   }
 
   jump () {

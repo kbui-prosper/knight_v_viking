@@ -1,3 +1,14 @@
+export const onWallHandler = (bodyA, bodyB) => {
+  if ((bodyA.label === 'knight' || bodyA.label === 'viking') &&
+      bodyB.label === 'invisibleWall') {
+    bodyA.friction = 0;
+  }
+  if ((bodyB.label === 'knight' || bodyB.label === 'viking') &&
+      bodyA.label === 'invisibleWall') {
+    bodyB.friction = 0;
+  }
+};
+
 export const touchGroundHandler = (bodyA, bodyB) => {
   if ((bodyA.label === 'knight' || bodyA.label === 'viking') &&
       bodyB.label === 'invisibleGround') {

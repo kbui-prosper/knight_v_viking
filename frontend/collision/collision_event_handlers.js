@@ -1,22 +1,15 @@
 import { Events } from 'matter-js';
 
 import {
-  touchGroundHandler, leaveGroundHandler
+  onWallHandler, touchGroundHandler, leaveGroundHandler
 } from './collision_event_helpers';
 
 export default engine => {
   Events.on(engine, 'collisionActive', event => {
-    // event.pairs.forEach(pair => {
-    //   const { bodyA, bodyB } = pair;
-    //   if ((bodyA.label === 'knight' || bodyA.label === 'viking') &&
-    //       bodyB.label === 'invisibleWall') {
-    //     bodyA.friction = 0;
-    //   }
-    //   if ((bodyB.label === 'knight' || bodyB.label === 'viking') &&
-    //       bodyA.label === 'invisibleWall') {
-    //     bodyB.friction = 0;
-    //   }
-    // });
+    event.pairs.forEach(pair => {
+      const { bodyA, bodyB } = pair;
+      onWallHandler(bodyA, bodyB);
+    });
   });
 
   Events.on(engine, 'collisionStart', event => {
