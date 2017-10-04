@@ -45,23 +45,28 @@ class BaseCharacter {
     this.body.charTypeClass = this;
 
     this.setDefaultFriction();
-    this.startIdle();
+    this.startAnimation();
     this.setKeyListeners();
   }
 
-  startIdle () {
-    this.idlePNGsIndex = 0;
-    this.idleInterval = window.setInterval(() => this.nextIdle(), 400);
+  startAnimation () {
+    this.pngIndex = 0;
+    this.pngInterval = window.setInterval(() => this.nextPNG(), 300);
   }
 
-  nextIdle () {
-    const { idlePNGs } = this.charType;
+  nextPNG () {
+    let pngs;
+    if (this.moving) {
+      pngs = this.charType.walkPNGs;
+    } else {
+      pngs = this.charType.idlePNGs;
+    }
 
-    this.idlePNGsIndex =
-    (this.idlePNGsIndex + 1) % idlePNGs[this.faceDirection].length;
+    this.pngIndex =
+    (this.pngIndex + 1) % pngs[this.faceDirection].length;
 
     this.body.render.sprite.texture =
-    idlePNGs[this.faceDirection][this.idlePNGsIndex];
+    pngs[this.faceDirection][this.pngIndex];
   }
 
   clearIdle () {
@@ -126,7 +131,7 @@ class BaseCharacter {
       () => {
         this.moving = true;
         this.clearFriction();
-        this.body.force.x = direction === 'left' ? -0.01 : 0.01;
+        this.body.force.x = direction === 'left' ? -0.005 : 0.005;
       },
       50
     );
@@ -134,9 +139,8 @@ class BaseCharacter {
     // just for the rendering
     if (this.faceDirection !== direction) {
       this.faceDirection = direction;
+      this.nextPNG();
       const { sprite } = this.body.render;
-      sprite.texture =
-      this.charType.idlePNGs[this.faceDirection][this.idlePNGsIndex];
       sprite.xOffset = direction === 'left' ? 0.2 + wtf : -0.2 + wtf;
     }
   }
