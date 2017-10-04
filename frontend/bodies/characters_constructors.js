@@ -148,12 +148,9 @@ class BaseCharacter {
       50
     );
 
-    // just for the rendering
     if (this.faceDirection !== direction) {
       this.faceDirection = direction;
       this.nextPNG();
-      const { sprite } = this.body.render;
-      sprite.xOffset = direction === 'left' ? 0.2 + wtf : -0.2 + wtf;
     }
   }
 
