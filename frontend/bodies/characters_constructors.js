@@ -25,9 +25,10 @@ class BaseCharacter {
       Math.random() * 800 + 100, 300,
       50, 90,
       {
+        charTypeClass: this,
         label: charType === window.knight ? 'knight' : 'viking',
         inertia: 'Infinity',
-        frictionStatic: 0,
+        friction: 0.8,
         // restitution: 0.8,
         render: {
           lineWidth: 5,
@@ -154,12 +155,16 @@ class BaseCharacter {
 
   stopLeft () {
     window.clearInterval(this.leftInterval);
-    this.adjustFriction(0.5);
+    if (!this.onWall) {
+      this.adjustFriction(0.8);
+    }
   }
 
   stopRight () {
     window.clearInterval(this.rightInterval);
-    this.adjustFriction(0.5);
+    if (!this.onWall) {
+      this.adjustFriction(0.8);
+    }
   }
 
   adjustFriction (newValue) {
