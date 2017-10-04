@@ -95,6 +95,22 @@ class BaseCharacter {
     }
   }
 
+  handleKeyUp (e) {
+    const { left, right, attack, jump } = this.charType.keyMap;
+    switch (e.keyCode) {
+      case left:
+        this.stopLeft();
+        break;
+      case right:
+        this.stopRight();
+        break;
+      case attack:
+        break;
+      case jump:
+        break;
+    }
+  }
+
   goLeft () {
     this.stopRight();
     this.leftInterval = window.setInterval(
@@ -155,22 +171,6 @@ class BaseCharacter {
 
   jump () {
     this.body.force = { x: 0, y: -0.2 };
-  }
-
-  handleKeyUp (e) {
-    const { left, right, attack, jump } = this.charType.keyMap;
-    switch (e.keyCode) {
-      case left:
-        this.stopLeft();
-        break;
-      case right:
-        this.stopRight();
-        break;
-      case attack:
-        break;
-      case jump:
-        break;
-    }
   }
 }
 
