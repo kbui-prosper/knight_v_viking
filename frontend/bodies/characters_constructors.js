@@ -28,7 +28,6 @@ class BaseCharacter {
       {
         label: charType === window.knight ? 'knight' : 'viking',
         inertia: 'Infinity',
-        // restitution: 0.8,
         render: {
           lineWidth: 5,
           sprite: {
@@ -45,7 +44,6 @@ class BaseCharacter {
     this.body.charTypeClass = this;
 
     this.setDefaultFriction();
-
     this.startIdle();
     this.setKeyListeners();
   }
@@ -87,10 +85,10 @@ class BaseCharacter {
     const { left, right, attack, jump } = this.charType.keyMap;
     switch (e.keyCode) {
       case left:
-        this.goLeft();
+        this.go('left');
         break;
       case right:
-        this.goRight();
+        this.go('right');
         break;
       case attack:
         break;
@@ -104,10 +102,14 @@ class BaseCharacter {
     const { left, right, attack, jump } = this.charType.keyMap;
     switch (e.keyCode) {
       case left:
-        this.stopLeft();
+        if (this.faceDirection === 'left') {
+          this.stop();
+        }
         break;
       case right:
-        this.stopRight();
+        if (this.faceDirection === 'right') {
+          this.stop();
+        }
         break;
       case attack:
         break;
@@ -116,55 +118,29 @@ class BaseCharacter {
     }
   }
 
-  goLeft () {
-    this.stopRight();
-    this.leftInterval = window.setInterval(
+  go (direction) {
+    this.stop();
+
+    this.moveInterval = window.setInterval(
       () => {
         this.clearFriction();
-        this.body.force.x = -0.01;
+        this.body.force.x = direction === 'left' ? -0.01 : 0.01;
       },
       50
     );
 
     // just for the rendering
-    if (this.faceDirection === 'right') {
-      this.faceDirection = 'left';
+    if (this.faceDirection !== direction) {
+      this.faceDirection = direction;
       const { sprite } = this.body.render;
       sprite.texture =
       this.charType.idlePNGs[this.faceDirection][this.idlePNGsIndex];
-      sprite.xOffset = 0.2 + wtf;
+      sprite.xOffset = direction === 'left' ? 0.2 + wtf : -0.2 + wtf;
     }
   }
 
-  goRight () {
-    this.stopLeft();
-    this.rightInterval = window.setInterval(
-      () => {
-        this.clearFriction();
-        this.body.force.x = 0.01;
-      },
-      50
-    );
-
-    // just for the rendering
-    if (this.faceDirection === 'left') {
-      this.faceDirection = 'right';
-      const { sprite } = this.body.render;
-      sprite.texture =
-      this.charType.idlePNGs[this.faceDirection][this.idlePNGsIndex];
-      sprite.xOffset = -0.2 + wtf;
-    }
-  }
-
-  stopLeft () {
-    window.clearInterval(this.leftInterval);
-    if (this.onGround) {
-      this.setDefaultFriction();
-    }
-  }
-
-  stopRight () {
-    window.clearInterval(this.rightInterval);
+  stop () {
+    window.clearInterval(this.moveInterval);
     if (this.onGround) {
       this.setDefaultFriction();
     }
