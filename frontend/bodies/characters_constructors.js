@@ -1,5 +1,7 @@
 import { Bodies, World } from 'matter-js';
 
+import { Sword, Axe } from './weapons_constructors';
+
 window.knight.keyMap = {
   left: 81, //'q',
   right: 87, //'w'
@@ -23,6 +25,7 @@ class BaseCharacter {
     this.onGround = false;
     this.moving = false;
     this.engine = engine;
+    this.Weapon = Sword;
 
     this.body = Bodies.rectangle(
       Math.random() * 800 + 100, 300,
@@ -179,11 +182,11 @@ class BaseCharacter {
   }
 
   attack () {
-    console.log(this.body.position);
-    // World.add(
-    //   this.engine.world,
-    //   this.weaponGenerator(this.body.position, this.charType)
-    // );
+    const sword = new this.Weapon(this.body.position);
+    World.add(
+      this.engine.world,
+      sword.body
+    );
   }
 }
 
