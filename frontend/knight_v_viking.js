@@ -1,4 +1,4 @@
-import { Engine, Render, World, Bodies, Events } from 'matter-js';
+import { Engine, Render, World, Bodies } from 'matter-js';
 
 import {
   leftWall, rightWall, ground, ceiling
@@ -7,6 +7,8 @@ import {
 import {
   Knight, Viking
 } from './bodies/characters_constructors';
+
+import collisionEventHandlers from './collision_event_handlers';
 
 //test
 import { addBalls } from './test/balls.js';
@@ -60,18 +62,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   Render.run(render);
 
-  // manually removing friction from side walls
-  Events.on(engine, 'collisionActive', event => {
-    event.pairs.forEach(pair => {
-      const { bodyA, bodyB } = pair;
-      if ((bodyA.label === 'knight' || bodyA.label === 'viking') &&
-          bodyB.label === 'invisibleWall') {
-        bodyA.friction = 0;
-      }
-      if ((bodyB.label === 'knight' || bodyB.label === 'viking') &&
-          bodyA.label === 'invisibleWall') {
-        bodyB.friction = 0;
-      }
-    });
-  });
+  collisionEventHandlers(engine);
 });

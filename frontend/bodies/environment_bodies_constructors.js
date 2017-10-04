@@ -70,7 +70,7 @@ export const invisibleLeftWall = () =>
 
 export const invisibleRightWall = () =>
   Bodies.rectangle(
-    worldWidth - boundThickness, worldHeight / 2,
+    worldWidth - boundThickness - 1, worldHeight / 2,
     1, worldHeight,
     {
       label: 'invisibleWall',
