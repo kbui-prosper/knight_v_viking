@@ -23,11 +23,14 @@ export const ceiling = () => Composites.stack(
   wallBlock
 );
 
-export const leftWall = () => Composites.stack(
-  0, 0,
-  1, worldHeight / boundThickness,
-  0, 0,
-  wallBlock
+export const leftWall = () => Composite.add(
+  Composites.stack(
+    0, 0,
+    1, worldHeight / boundThickness,
+    0, 0,
+    wallBlock
+  ),
+  invisibleLeftWall()
 );
 
 export const rightWall = () => Composite.add(

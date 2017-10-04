@@ -56,14 +56,14 @@ export const invisibleGround = () =>
 
 export const invisibleLeftWall = () =>
   Bodies.rectangle(
-    boundThickness, worldHeight / 2,
+    boundThickness + 1, worldHeight / 2,
     1, worldHeight,
     {
       label: 'invisibleWall',
       isStatic: true,
       friction: 0,
       render: {
-        fillStyle: 'red'
+        fillStyle: 'transparent'
       }
     }
   );
