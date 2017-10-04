@@ -59,8 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // test
 
   Engine.run(engine);
-
   Render.run(render);
-
   collisionEventHandlers(engine);
 });
