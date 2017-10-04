@@ -10,7 +10,7 @@ export class Sword extends BaseWeapon {
     const { x, y } = charPostition;
     this.body = Bodies.rectangle(
       x, y,
-      100, 100
+      20, 20
     );
   }
 }
@@ -21,7 +21,7 @@ export class Axe extends BaseWeapon {
     const { x, y } = charPostition;
     this.body = Bodies.rectangle(
       x, y,
-      100, 100
+      20, 20
     );
   }
 }
