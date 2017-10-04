@@ -179,10 +179,11 @@ class BaseCharacter {
   }
 
   attack () {
-    World.add(
-      this.engine.world,
-      this.weaponGenerator(9999)
-    );
+    console.log(this.body.position);
+    // World.add(
+    //   this.engine.world,
+    //   this.weaponGenerator(this.body.position)
+    // );
   }
 }
 
