@@ -26,7 +26,6 @@ class BaseCharacter {
       50, 90,
       {
         inertia: 'Infinity',
-        friction: 0,
         // restitution: 0.8,
         render: {
           lineWidth: 5,
@@ -177,8 +176,6 @@ class BaseCharacter {
 export class Knight extends BaseCharacter {
   constructor () {
     super(window.knight, 'right');
-
-    window.k = this.body;
   }
 }
 

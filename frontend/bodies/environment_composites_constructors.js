@@ -9,6 +9,8 @@ import {
   boundThickness,
   wallBlock,
   groundBlock,
+  invisibleLeftWall,
+  invisibleRightWall,
   invisibleGround
 } from './environment_bodies_constructors';
 
@@ -28,11 +30,14 @@ export const leftWall = () => Composites.stack(
   wallBlock
 );
 
-export const rightWall = () => Composites.stack(
-  worldWidth - boundThickness, 0,
-  1, worldHeight / boundThickness,
-  0, 0,
-  wallBlock
+export const rightWall = () => Composite.add(
+  Composites.stack(
+    worldWidth - boundThickness, 0,
+    1, worldHeight / boundThickness,
+    0, 0,
+    wallBlock
+  ),
+  invisibleRightWall()
 );
 
 export const ground = () => Composite.add(

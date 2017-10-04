@@ -11,6 +11,7 @@ export const wallBlock = (x, y) =>
     boundThickness, boundThickness,
     {
       isStatic: true,
+      friction: 0,
       label: 'worldBoundary',
       render: {
         // fillStyle: 'brown',
@@ -48,6 +49,32 @@ export const invisibleGround = () =>
       isStatic: true,
       render: {
         fillStyle: 'transparent'
+      }
+    }
+  );
+
+export const invisibleLeftWall = () =>
+  Bodies.rectangle(
+    boundThickness, worldHeight / 2,
+    1, worldHeight,
+    {
+      isStatic: true,
+      friction: 0,
+      render: {
+        fillStyle: 'red'
+      }
+    }
+  );
+
+export const invisibleRightWall = () =>
+  Bodies.rectangle(
+    worldWidth - boundThickness, worldHeight / 2,
+    1, worldHeight,
+    {
+      isStatic: true,
+      friction: 0,
+      render: {
+        fillStyle: 'red'
       }
     }
   );
