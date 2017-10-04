@@ -171,7 +171,9 @@ class BaseCharacter {
   }
 
   jump () {
-    this.body.force = { x: 0, y: -0.2 };
+    if (this.onGround) {
+      this.body.force = { x: 0, y: -0.2 };
+    }
   }
 }
 
