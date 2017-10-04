@@ -20,15 +20,15 @@ class BaseCharacter {
   constructor (charType, faceDirection) {
     this.charType = charType;
     this.faceDirection = faceDirection;
+    this.onWall = false;
+    this.onGround = false;
 
     this.body = Bodies.rectangle(
       Math.random() * 800 + 100, 300,
       50, 90,
       {
-        charTypeClass: this,
         label: charType === window.knight ? 'knight' : 'viking',
         inertia: 'Infinity',
-        friction: 0.8,
         // restitution: 0.8,
         render: {
           lineWidth: 5,
@@ -42,6 +42,10 @@ class BaseCharacter {
         }
       }
     );
+
+    this.body.charTypeClass = this;
+
+    this.setDefaultFriction();
 
     this.startIdle();
     this.setKeyListeners();
@@ -117,7 +121,7 @@ class BaseCharacter {
     this.stopRight();
     this.leftInterval = window.setInterval(
       () => {
-        this.adjustFriction(0);
+        this.clearFriction();
         this.body.force.x = -0.01;
       },
       50
@@ -137,7 +141,7 @@ class BaseCharacter {
     this.stopLeft();
     this.rightInterval = window.setInterval(
       () => {
-        this.adjustFriction(0);
+        this.clearFriction();
         this.body.force.x = 0.01;
       },
       50
@@ -155,20 +159,24 @@ class BaseCharacter {
 
   stopLeft () {
     window.clearInterval(this.leftInterval);
-    if (!this.onWall) {
-      this.adjustFriction(0.8);
+    if (this.onGround) {
+      this.setDefaultFriction();
     }
   }
 
   stopRight () {
     window.clearInterval(this.rightInterval);
-    if (!this.onWall) {
-      this.adjustFriction(0.8);
+    if (this.onGround) {
+      this.setDefaultFriction();
     }
   }
 
-  adjustFriction (newValue) {
-    this.body.friction = newValue;
+  setDefaultFriction () {
+    this.body.friction = 0.8;
+  }
+
+  clearFriction () {
+    this.body.friction = 0;
   }
 
   jump () {

@@ -20,11 +20,13 @@ export default engine => {
       const { bodyA, bodyB } = pair;
       if ((bodyA.label === 'knight' || bodyA.label === 'viking') &&
           bodyB.label === 'invisibleGround') {
-        bodyA.charTypeClass.onWall = true;
+        bodyA.charTypeClass.onGround = true;
+        bodyA.charTypeClass.setDefaultFriction();
       }
       if ((bodyB.label === 'knight' || bodyB.label === 'viking') &&
           bodyA.label === 'invisibleGround') {
-        bodyB.charTypeClass.onWall = true;
+        bodyB.charTypeClass.onGround = true;
+        bodyB.charTypeClass.setDefaultFriction();
       }
     });
   });
@@ -33,12 +35,12 @@ export default engine => {
     event.pairs.forEach(pair => {
       const { bodyA, bodyB } = pair;
       if ((bodyA.label === 'knight' || bodyA.label === 'viking') &&
-          bodyB.label === 'invisibleWall') {
-        bodyA.charTypeClass.onWall = false;
+          bodyB.label === 'invisibleGround') {
+        bodyA.charTypeClass.onGround = false;
       }
       if ((bodyB.label === 'knight' || bodyB.label === 'viking') &&
-          bodyA.label === 'invisibleWall') {
-        bodyB.charTypeClass.onWall = false;
+          bodyA.label === 'invisibleGround') {
+        bodyB.charTypeClass.onGround = false;
       }
     });
   });
