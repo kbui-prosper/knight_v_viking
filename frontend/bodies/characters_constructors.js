@@ -120,14 +120,12 @@ class BaseCharacter {
       50
     );
 
+    // just for the rendering
     if (this.faceDirection === 'right') {
       this.faceDirection = 'left';
-
       const { sprite } = this.body.render;
-
       sprite.texture =
       this.charType.idlePNGs[this.faceDirection][this.idlePNGsIndex];
-
       sprite.xOffset = 0.2 + wtf;
     }
   }
@@ -142,14 +140,12 @@ class BaseCharacter {
       50
     );
 
+    // just for the rendering
     if (this.faceDirection === 'left') {
       this.faceDirection = 'right';
-
       const { sprite } = this.body.render;
-
       sprite.texture =
       this.charType.idlePNGs[this.faceDirection][this.idlePNGsIndex];
-
       sprite.xOffset = -0.2 + wtf;
     }
   }
