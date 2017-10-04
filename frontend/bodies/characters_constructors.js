@@ -21,6 +21,7 @@ class BaseCharacter {
     this.charType = charType;
     this.faceDirection = faceDirection;
     this.onGround = false;
+    this.moving = false;
 
     this.body = Bodies.rectangle(
       Math.random() * 800 + 100, 300,
@@ -123,6 +124,7 @@ class BaseCharacter {
 
     this.moveInterval = window.setInterval(
       () => {
+        this.moving = true;
         this.clearFriction();
         this.body.force.x = direction === 'left' ? -0.01 : 0.01;
       },
@@ -141,6 +143,7 @@ class BaseCharacter {
 
   stop () {
     window.clearInterval(this.moveInterval);
+    this.moving = false;
     if (this.onGround) {
       this.setDefaultFriction();
     }
@@ -152,6 +155,7 @@ class BaseCharacter {
 
   clearFriction () {
     this.body.friction = 0;
+    console.log(this.body);
   }
 
   jump () {
