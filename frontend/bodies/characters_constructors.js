@@ -51,12 +51,14 @@ class BaseCharacter {
 
   startAnimation () {
     this.pngIndex = 0;
-    this.pngInterval = window.setInterval(() => this.nextPNG(), 300);
+    this.pngInterval = window.setInterval(() => this.nextPNG(), 100);
   }
 
   nextPNG () {
     let pngs;
-    if (this.moving) {
+    if (!this.onGround) {
+      pngs = this.charType.jumpPNGs;
+    } else if(this.moving) {
       pngs = this.charType.walkPNGs;
     } else {
       pngs = this.charType.idlePNGs;
@@ -131,7 +133,7 @@ class BaseCharacter {
       () => {
         this.moving = true;
         this.clearFriction();
-        this.body.force.x = direction === 'left' ? -0.005 : 0.005;
+        this.body.force.x = direction === 'left' ? -0.01 : 0.01;
       },
       50
     );
