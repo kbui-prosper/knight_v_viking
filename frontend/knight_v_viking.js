@@ -43,8 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   // Characters
-  const knight = new Knight();
-  const viking = new Viking();
+  const knight = new Knight(engine);
+  const viking = new Viking(engine);
   World.add(
     engine.world,
     [

@@ -1,4 +1,4 @@
-import { Bodies } from 'matter-js';
+import { Bodies, World } from 'matter-js';
 
 window.knight.keyMap = {
   left: 81, //'q',
@@ -17,11 +17,12 @@ window.viking.keyMap = {
 const wtf = 0.5;
 
 class BaseCharacter {
-  constructor (charType, faceDirection) {
+  constructor (charType, faceDirection, engine) {
     this.charType = charType;
     this.faceDirection = faceDirection;
     this.onGround = false;
     this.moving = false;
+    this.engine = engine;
 
     this.body = Bodies.rectangle(
       Math.random() * 800 + 100, 300,
@@ -109,6 +110,7 @@ class BaseCharacter {
         this.go('right');
         break;
       case attack:
+        this.attack();
         break;
       case jump:
         this.jump();
@@ -175,16 +177,23 @@ class BaseCharacter {
       this.body.force = { x: 0, y: -0.2 };
     }
   }
+
+  attack () {
+    World.add(
+      this.engine.world,
+      this.weaponGenerator(9999)
+    );
+  }
 }
 
 export class Knight extends BaseCharacter {
-  constructor () {
-    super(window.knight, 'right');
+  constructor (engine) {
+    super(window.knight, 'right', engine);
   }
 }
 
 export class Viking extends BaseCharacter {
-  constructor () {
-    super(window.viking, 'left');
+  constructor (engine) {
+    super(window.viking, 'left', engine);
   }
 }
