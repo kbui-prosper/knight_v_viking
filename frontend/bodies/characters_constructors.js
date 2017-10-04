@@ -185,7 +185,10 @@ class BaseCharacter {
   }
 
   attack () {
-    const sword = new this.Weapon(this.body.position);
+    let { x, y } = this.body.position;
+    x += this.faceDirection === 'left' ? -25 : 25;
+    y -= 45;
+    const sword = new this.Weapon({ x, y });
     World.add(
       this.engine.world,
       sword.body
