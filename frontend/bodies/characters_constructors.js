@@ -56,13 +56,23 @@ class BaseCharacter {
 
   nextPNG () {
     let pngs;
+    const { sprite } = this.body.render;
     if (!this.onGround) {
       pngs = this.charType.jumpPNGs;
-    } else if(this.moving) {
-      pngs = this.charType.walkPNGs;
+      sprite.xOffset = this.faceDirection === 'left' ?
+                       0.1 + wtf :
+                       -0.1 + wtf;
     } else {
-      pngs = this.charType.idlePNGs;
+      sprite.xOffset = this.faceDirection === 'left' ?
+                       0.2 + wtf :
+                       -0.2 + wtf;
+      if(this.moving) {
+        pngs = this.charType.walkPNGs;
+      } else {
+        pngs = this.charType.idlePNGs;
+      }
     }
+
 
     this.pngIndex =
     (this.pngIndex + 1) % pngs[this.faceDirection].length;
