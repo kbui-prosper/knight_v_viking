@@ -182,7 +182,7 @@ class BaseCharacter {
     console.log(this.body.position);
     // World.add(
     //   this.engine.world,
-    //   this.weaponGenerator(this.body.position)
+    //   this.weaponGenerator(this.body.position, this.charType)
     // );
   }
 }
