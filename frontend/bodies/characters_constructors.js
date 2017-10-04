@@ -25,7 +25,9 @@ class BaseCharacter {
       Math.random() * 800 + 100, 300,
       50, 90,
       {
+        label: charType === window.knight ? 'knight' : 'viking',
         inertia: 'Infinity',
+        frictionStatic: 0,
         // restitution: 0.8,
         render: {
           lineWidth: 5,

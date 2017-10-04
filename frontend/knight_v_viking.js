@@ -1,4 +1,4 @@
-import { Engine, Render, World, Bodies } from 'matter-js';
+import { Engine, Render, World, Bodies, Events } from 'matter-js';
 
 import {
   leftWall, rightWall, ground, ceiling
@@ -60,5 +60,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   Render.run(render);
 
-  window.leftWall = leftWall();
+  let log = true;
+
+  Events.on(engine, 'collisionActive', event => {
+    if (log) {
+      log = false;
+      console.log(event);
+    }
+  });
 });

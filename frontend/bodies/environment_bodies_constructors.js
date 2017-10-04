@@ -46,6 +46,7 @@ export const invisibleGround = () =>
     worldWidth / 2, worldHeight - boundThickness - 1,
     worldWidth, 1,
     {
+      label: 'invisibleGround',
       isStatic: true,
       render: {
         fillStyle: 'transparent'
