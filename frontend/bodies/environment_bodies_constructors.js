@@ -59,6 +59,7 @@ export const invisibleLeftWall = () =>
     boundThickness, worldHeight / 2,
     1, worldHeight,
     {
+      label: 'invisibleWall',
       isStatic: true,
       friction: 0,
       render: {
@@ -72,10 +73,11 @@ export const invisibleRightWall = () =>
     worldWidth - boundThickness, worldHeight / 2,
     1, worldHeight,
     {
+      label: 'invisibleWall',
       isStatic: true,
       friction: 0,
       render: {
-        fillStyle: 'red'
+        fillStyle: 'transparent'
       }
     }
   );

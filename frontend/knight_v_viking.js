@@ -60,12 +60,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   Render.run(render);
 
-  let log = true;
-
+  // manually removing friction from side walls
   Events.on(engine, 'collisionActive', event => {
-    if (log) {
-      log = false;
-      console.log(event);
-    }
+    event.pairs.forEach(pair => {
+      const { bodyA, bodyB } = pair;
+      if ((bodyA.label === 'knight' || bodyA.label === 'viking') &&
+          bodyB.label === 'invisibleWall') {
+        bodyA.friction = 0;
+      }
+      if ((bodyB.label === 'knight' || bodyB.label === 'viking') &&
+          bodyA.label === 'invisibleWall') {
+        bodyB.friction = 0;
+      }
+    });
   });
 });
