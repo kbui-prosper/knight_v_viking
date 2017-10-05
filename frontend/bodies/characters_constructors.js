@@ -4,17 +4,17 @@ import { Sword, Axe } from './weapons_constructors';
 import { updateWeaponCount } from '../ui/ui_helpers';
 
 window.knight.keyMap = {
-  left: 81, //'q',
-  right: 87, //'w'
-  attack: 88, //'x'
-  jump: 67, //'c'
+  left: 65, //'q',
+  right: 68, //'w'
+  attack: 192, //'x'
+  jump: 49, //'c'
 };
 
 window.viking.keyMap = {
-  left: 188, //','
-  right: 190, //'.'
-  attack: 219, //'['
-  jump: 221, //']'
+  left: 37, //','
+  right: 39, //'.'
+  attack: 188, //'['
+  jump: 190, //']'
 };
 
 const wtf = 0.5;
