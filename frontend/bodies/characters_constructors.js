@@ -216,7 +216,8 @@ class BaseCharacter {
       const weapon = new this.Weapon(
         this.body.position,
         this.faceDirection,
-        this.body.velocity
+        this.body.velocity,
+        this.engine
       );
 
       World.add(

@@ -14,7 +14,7 @@ const axeVertices = [
 ];
 
 class BaseWeapon {
-  constructor (spawnPos, direction, velocity, weaponType) {
+  constructor (spawnPos, direction, velocity, engine, weaponType) {
     const { x, y } = spawnPos;
 
     this.body = Bodies.fromVertices(
@@ -39,7 +39,7 @@ class BaseWeapon {
       yOffset: 0.5
     };
 
-    // window.setTimeout(() => this.body.remove(), 5000);
+    window.setTimeout(() => Composite.remove(engine.world, this.body), 5000);
   }
 }
 
