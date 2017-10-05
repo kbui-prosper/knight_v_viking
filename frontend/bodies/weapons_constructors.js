@@ -1,11 +1,12 @@
 import { Bodies } from 'matter-js';
 
 class BaseWeapon {
-  constructor (spawnPos, direction, velocity, width, height) {
+  constructor (spawnPos, direction, velocity, weaponType) {
     const { x, y } = spawnPos;
-    this.body = Bodies.rectangle(
+
+    this.body = Bodies.circle(
       x + (direction === 'right' ? 25 : -25), y - 45,
-      40, 40,
+      25,
       {
         restitution: 1,
         force: {
@@ -14,14 +15,9 @@ class BaseWeapon {
         }
       }
     );
-  }
-}
 
-export class Sword extends BaseWeapon {
-  constructor (...args) {
-    super(...args, 20, 45);
     this.body.render.sprite = {
-      texture: window.sword,
+      texture: weaponType,
       xScale: 0.1,
       yScale: 0.1,
       xOffset: 0.5,
@@ -30,8 +26,14 @@ export class Sword extends BaseWeapon {
   }
 }
 
+export class Sword extends BaseWeapon {
+  constructor (...args) {
+    super(...args, window.sword);
+  }
+}
+
 export class Axe extends BaseWeapon {
   constructor (...args) {
-    super(...args, 30, 30);
+    super(...args, window.axe);
   }
 }
