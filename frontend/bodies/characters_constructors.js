@@ -29,7 +29,7 @@ class BaseCharacter {
     this.weaponCount = 5;
 
     this.body = Bodies.rectangle(
-      Math.random() * 800 + 100, 300,
+      charType === window.knight ? 300 : 900, 300,
       50, 90,
       {
         label: charType === window.knight ? 'knight' : 'viking',
