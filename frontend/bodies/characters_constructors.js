@@ -28,7 +28,7 @@ class BaseCharacter {
     this.engine = engine;
     this.Weapon = charType === window.knight ? Sword : Axe;
     this.weaponString = this.Weapon === Sword ? 'sword' : 'axe';
-    this.weaponCount = 5;
+    this.weaponCount = 3;
     this.health = 100;
 
     this.body = Bodies.rectangle(
