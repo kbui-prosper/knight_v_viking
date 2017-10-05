@@ -196,24 +196,28 @@ class BaseCharacter {
     }
     this.stopAnimation();
     const { sprite } = this.body.render;
-    sprite.texture = this.charType.attackPNGs[this.faceDirection][0];
+    const pngs = this.charType.attackPNGs[this.faceDirection];
+    sprite.texture = pngs[0];
     sprite.yOffset = 0.6;
     window.setTimeout(() => this.startAnimation(), 300);
 
-    this.weaponCount -= 1;
+    window.setTimeout(() => {
+      sprite.texture = pngs[1];
+      this.weaponCount -= 1;
 
-    const weapon = new this.Weapon(
-      this.body.position,
-      this.faceDirection,
-      this.body.velocity
-    );
+      const weapon = new this.Weapon(
+        this.body.position,
+        this.faceDirection,
+        this.body.velocity
+      );
 
-    World.add(
-      this.engine.world,
-      weapon.body
-    );
+      World.add(
+        this.engine.world,
+        weapon.body
+      );
 
-    window.setTimeout(() => { this.weaponCount += 1; }, 5000);
+      window.setTimeout(() => { this.weaponCount += 1; }, 5000);
+    }, 100);
   }
 }
 
