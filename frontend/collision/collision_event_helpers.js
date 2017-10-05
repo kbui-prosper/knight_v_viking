@@ -42,18 +42,22 @@ export const leaveGroundHandler = (bodyA, bodyB) => {
 export const weaponHitHander = (bodyA, bodyB) => {
   if ((bodyA.label === 'knight' && bodyB.label === 'axe') ||
       (bodyA.label === 'viking' && bodyB.label === 'sword')) {
-    bodyA.charTypeClass.health -= 5;
-    updateHealth(bodyA.label, bodyA.charTypeClass.health);
-    if (bodyA.charTypeClass.health <= 0) {
-      alert(`${bodyA.label} has perished!`);
+    const { charTypeClass } = bodyA;
+    charTypeClass.health -= 5;
+    updateHealth(bodyA.label, charTypeClass.health);
+    if (charTypeClass.health <= 0) {
+      charTypeClass.stop();
+      charTypeClass.die();
     }
   }
   if ((bodyB.label === 'knight' && bodyA.label === 'axe') ||
       (bodyB.label === 'viking' && bodyA.label === 'sword')) {
-    bodyB.charTypeClass.health -= 5;
-    updateHealth(bodyB.label, bodyB.charTypeClass.health);
-    if (bodyB.charTypeClass.health <= 0) {
-      alert(`${bodyB.label} has perished!`);
+    const { charTypeClass } = bodyB;
+    charTypeClass.health -= 5;
+    updateHealth(bodyB.label, charTypeClass.health);
+    if (charTypeClass.health <= 0) {
+      charTypeClass.stop();
+      charTypeClass.die();
     }
   }
 };

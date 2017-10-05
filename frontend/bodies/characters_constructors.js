@@ -30,6 +30,7 @@ class BaseCharacter {
     this.weaponString = this.Weapon === Sword ? 'sword' : 'axe';
     this.weaponCount = 3;
     this.health = 100;
+    this.dead = false;
 
     this.body = Bodies.rectangle(
       charType === window.knight ? 300 : 900, 300,
@@ -117,7 +118,7 @@ class BaseCharacter {
   }
 
   handleKeyDown (e) {
-    if (e.repeat) {
+    if (e.repeat || this.dead) {
       return;
     }
     const { left, right, attack, jump } = this.charType.keyMap;
@@ -138,6 +139,9 @@ class BaseCharacter {
   }
 
   handleKeyUp (e) {
+    if (this.dead) {
+      return;
+    }
     const { left, right, attack, jump } = this.charType.keyMap;
     switch (e.keyCode) {
       case left:
@@ -230,6 +234,10 @@ class BaseCharacter {
         updateWeaponCount(this.weaponString, this.weaponCount);
       }, 5000);
     }, 100);
+  }
+
+  die () {
+    this.dead = true;
   }
 }
 
