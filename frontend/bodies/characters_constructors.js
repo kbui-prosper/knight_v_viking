@@ -33,6 +33,7 @@ class BaseCharacter {
       {
         label: charType === window.knight ? 'knight' : 'viking',
         inertia: 'Infinity',
+        chamfer: { radius: 15 },
         render: {
           lineWidth: 5,
           sprite: {
