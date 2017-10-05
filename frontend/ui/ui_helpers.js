@@ -6,3 +6,8 @@ export const updateWeaponCount = (weapon, number) => {
   }
   weaponContainer.innerHTML = weapons.join('') || 'No more weapons';
 };
+
+export const updateHealth = (charType, health) => {
+  const healthBar = document.querySelector(`.${charType}-health-bar`);
+  healthBar.style.width = `${health * 2}px`;
+};

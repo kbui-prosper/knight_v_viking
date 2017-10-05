@@ -1,3 +1,5 @@
+import { updateHealth } from '../ui/ui_helpers';
+
 export const onWallHandler = (bodyA, bodyB) => {
   if ((bodyA.label === 'knight' || bodyA.label === 'viking') &&
       bodyB.label === 'invisibleWall') {
@@ -41,9 +43,11 @@ export const weaponHitHander = (bodyA, bodyB) => {
   if ((bodyA.label === 'knight' && bodyB.label === 'axe') ||
       (bodyA.label === 'viking' && bodyB.label === 'sword')) {
     bodyA.charTypeClass.health -= 10;
+    updateHealth(bodyA.label, bodyA.charTypeClass.health);
   }
   if ((bodyB.label === 'knight' && bodyA.label === 'axe') ||
       (bodyB.label === 'viking' && bodyA.label === 'sword')) {
     bodyB.charTypeClass.health -= 10;
+    updateHealth(bodyB.label, bodyB.charTypeClass.health);
   }
 };
