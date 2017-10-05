@@ -11,6 +11,7 @@ class BaseWeapon {
       25,
       {
         restitution: 0.7,
+        torque: direction === 'right' ? 3 : -3,
         force: {
           x: velocity.x / 100 + (direction === 'right' ? 0.02 : -0.02),
           y: velocity.y / 100 -0.02
