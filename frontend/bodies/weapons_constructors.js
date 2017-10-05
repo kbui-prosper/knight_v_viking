@@ -17,8 +17,6 @@ class BaseWeapon {
   constructor (spawnPos, direction, velocity, weaponType) {
     const { x, y } = spawnPos;
 
-    console.log(velocity);
-
     this.body = Bodies.fromVertices(
       x + (direction === 'right' ? 25 : -25), y - 10,
       weaponType === window.sword ? swordVertices : axeVertices,

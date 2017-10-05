@@ -55,6 +55,7 @@ class BaseCharacter {
     this.setDefaultFriction();
     this.startAnimation();
     this.setKeyListeners();
+    updateWeaponCount(this.weaponString, this.weaponCount);
   }
 
   startAnimation () {
