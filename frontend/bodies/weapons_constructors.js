@@ -20,7 +20,7 @@ class BaseWeapon {
     console.log(velocity);
 
     this.body = Bodies.fromVertices(
-      x + (direction === 'right' ? 25 : -25), y - 45,
+      x + (direction === 'right' ? 25 : -25), y - 10,
       weaponType === window.sword ? swordVertices : axeVertices,
       {
         restitution: weaponType === window.sword ? 0.3 : 1,
