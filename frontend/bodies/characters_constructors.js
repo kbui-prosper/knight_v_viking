@@ -56,6 +56,9 @@ class BaseCharacter {
   }
 
   startAnimation () {
+    if (this.pngInterval) {
+      this.stopAnimation();
+    }
     this.pngIndex = this.pngIndex || 0;
     this.pngInterval = window.setInterval(() => this.nextPNG(), 100);
   }
