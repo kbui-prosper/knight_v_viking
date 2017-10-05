@@ -36,3 +36,10 @@ export const leaveGroundHandler = (bodyA, bodyB) => {
     bodyB.charTypeClass.onGround = false;
   }
 };
+
+export const weaponHitHander = (bodyA, bodyB) => {
+  if ((bodyA.label === 'knight' || bodyA.label === 'viking') &&
+      bodyB.label === 'invisibleGround') {
+        
+      }
+};

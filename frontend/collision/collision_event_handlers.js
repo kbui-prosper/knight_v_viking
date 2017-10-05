@@ -1,7 +1,10 @@
 import { Events } from 'matter-js';
 
 import {
-  onWallHandler, touchGroundHandler, leaveGroundHandler
+  onWallHandler,
+  touchGroundHandler,
+  leaveGroundHandler,
+  weaponHitHander
 } from './collision_event_helpers';
 
 export default engine => {
@@ -16,6 +19,7 @@ export default engine => {
     event.pairs.forEach(pair => {
       const { bodyA, bodyB } = pair;
       touchGroundHandler(bodyA, bodyB);
+      weaponHitHander(bodyA, bodyB);
     });
   });
 
