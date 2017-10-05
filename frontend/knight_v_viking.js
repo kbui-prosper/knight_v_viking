@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   // test
-  window.setTimeout(() => addBalls(engine, 100), 2000);
+  // window.setTimeout(() => addBalls(engine, 100), 2000);
   // addBalls(engine, 200);
   // test
 
