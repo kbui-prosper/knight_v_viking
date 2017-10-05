@@ -4,14 +4,16 @@ class BaseWeapon {
   constructor (spawnPos, direction, velocity, weaponType) {
     const { x, y } = spawnPos;
 
+    console.log(velocity);
+
     this.body = Bodies.circle(
       x + (direction === 'right' ? 25 : -25), y - 45,
       25,
       {
         restitution: 1,
         force: {
-          x: velocity.x / 600 + (direction === 'right' ? 0.01 : -0.01),
-          y: -0.01
+          x: velocity.x / 300 + (direction === 'right' ? 0.02 : -0.02),
+          y: velocity.y / 300 -0.02
         }
       }
     );
