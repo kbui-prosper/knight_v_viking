@@ -98,7 +98,7 @@ class BaseCharacter {
     this.pngIndex =
     (this.pngIndex + 1) % pngs[this.faceDirection].length;
 
-    this.body.render.sprite.texture =
+    sprite.texture =
     pngs[this.faceDirection][this.pngIndex];
   }
 
@@ -238,6 +238,9 @@ class BaseCharacter {
 
   die () {
     this.dead = true;
+    this.stopAnimation();
+    this.body.render.sprite.texture =
+    this.charType.diePNGs[this.faceDirection][0];
   }
 }
 
