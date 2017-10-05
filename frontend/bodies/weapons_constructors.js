@@ -8,8 +8,8 @@ const swordVertices = [
 ];
 
 const axeVertices = [
-  { x: 20, y: 0}, { x: 50, y: 0 },
-  { x: 50, y: 30},
+  { x: 20, y: 0}, { x: 40, y: 0 },
+  { x: 50, y: 10 }, { x: 50, y: 30},
   { x: 10, y: 50 }, { x: 0, y: 40},
 ];
 
@@ -21,14 +21,13 @@ class BaseWeapon {
 
     this.body = Bodies.fromVertices(
       x + (direction === 'right' ? 25 : -25), y - 45,
-      // [[25, 0], [50, 0], [50, 25], [25, 50], [0, 50], [0, 25]],
       weaponType === window.sword ? swordVertices : axeVertices,
       {
-        restitution: 0.7,
+        restitution: weaponType === window.sword ? 0.3 : 1,
         torque: direction === 'right' ? 3 : -3,
         force: {
-          x: velocity.x / 100 + (direction === 'right' ? 0.02 : -0.02),
-          y: velocity.y / 100 -0.02
+          x: velocity.x / 100 + (direction === 'right' ? 0.01 : -0.01),
+          y: velocity.y / 100 -0.01
         }
       }
     );
