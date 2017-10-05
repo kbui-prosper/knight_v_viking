@@ -1,4 +1,17 @@
 import { Bodies, Composite } from 'matter-js';
+import { quickDecomp } from 'poly-decomp';
+
+const swordVertices = [
+  { x: 25, y: 10 }, { x: 50, y: 0 },
+  { x: 40, y: 25 }, { x: 25, y: 40 },
+  { x: 0, y: 50 }, { x: 10, y: 25 }
+];
+
+const axeVertices = [
+  { x: 20, y: 0}, { x: 50, y: 0 },
+  { x: 50, y: 30},
+  { x: 10, y: 50 }, { x: 0, y: 40},
+];
 
 class BaseWeapon {
   constructor (spawnPos, direction, velocity, weaponType) {
@@ -6,9 +19,10 @@ class BaseWeapon {
 
     console.log(velocity);
 
-    this.body = Bodies.circle(
+    this.body = Bodies.fromVertices(
       x + (direction === 'right' ? 25 : -25), y - 45,
-      25,
+      // [[25, 0], [50, 0], [50, 25], [25, 50], [0, 50], [0, 25]],
+      weaponType === window.sword ? swordVertices : axeVertices,
       {
         restitution: 0.7,
         torque: direction === 'right' ? 3 : -3,
