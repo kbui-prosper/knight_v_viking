@@ -38,8 +38,12 @@ export const leaveGroundHandler = (bodyA, bodyB) => {
 };
 
 export const weaponHitHander = (bodyA, bodyB) => {
-  if ((bodyA.label === 'knight' || bodyA.label === 'viking') &&
-      bodyB.label === 'invisibleGround') {
-        
-      }
+  if ((bodyA.label === 'knight' && bodyB.label === 'axe') ||
+      (bodyA.label === 'viking' && bodyB.label === 'sword')) {
+    bodyA.charTypeClass.health -= 10;
+  }
+  if ((bodyB.label === 'knight' && bodyA.label === 'axe') ||
+      (bodyB.label === 'viking' && bodyA.label === 'sword')) {
+    bodyB.charTypeClass.health -= 10;
+  }
 };
