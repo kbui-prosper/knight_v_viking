@@ -74,8 +74,8 @@ Each character spawns with 100 health. Game is over when either player reaches 0
 - [x] Make sure that character can be reused (2 players)
 
 #### Day 3 - Wednesday
-- [ ] Add weapon throwing functionality
-- [ ] Style weapon throwing functionality
+- [x] Add weapon throwing functionality
+- [x] Style weapon throwing functionality
 - [ ] Add health bars and style health bar renders
 
 #### Day 4 - Thursday

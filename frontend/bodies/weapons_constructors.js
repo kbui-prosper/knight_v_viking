@@ -10,10 +10,10 @@ class BaseWeapon {
       x + (direction === 'right' ? 25 : -25), y - 45,
       25,
       {
-        restitution: 1,
+        restitution: 0.7,
         force: {
-          x: velocity.x / 300 + (direction === 'right' ? 0.02 : -0.02),
-          y: velocity.y / 300 -0.02
+          x: velocity.x / 100 + (direction === 'right' ? 0.02 : -0.02),
+          y: velocity.y / 100 -0.02
         }
       }
     );
