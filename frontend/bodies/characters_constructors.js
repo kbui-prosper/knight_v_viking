@@ -1,6 +1,7 @@
 import { Bodies, World } from 'matter-js';
 
 import { Sword, Axe } from './weapons_constructors';
+import { updateWeaponCount } from '../ui/ui_helpers';
 
 window.knight.keyMap = {
   left: 81, //'q',
@@ -26,6 +27,7 @@ class BaseCharacter {
     this.moving = false;
     this.engine = engine;
     this.Weapon = charType === window.knight ? Sword : Axe;
+    this.weaponString = this.Weapon === Sword ? 'sword' : 'axe';
     this.weaponCount = 5;
 
     this.body = Bodies.rectangle(
@@ -207,6 +209,7 @@ class BaseCharacter {
     window.setTimeout(() => {
       sprite.texture = pngs[1];
       this.weaponCount -= 1;
+      updateWeaponCount(this.weaponString, this.weaponCount);
 
       const weapon = new this.Weapon(
         this.body.position,
@@ -219,7 +222,10 @@ class BaseCharacter {
         weapon.body
       );
 
-      window.setTimeout(() => { this.weaponCount += 1; }, 5000);
+      window.setTimeout(() => {
+        this.weaponCount += 1;
+        updateWeaponCount(this.weaponString, this.weaponCount);
+      }, 5000);
     }, 100);
   }
 }
