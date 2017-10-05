@@ -1,4 +1,4 @@
-import { Bodies } from 'matter-js';
+import { Bodies, Composite } from 'matter-js';
 
 class BaseWeapon {
   constructor (spawnPos, direction, velocity, weaponType) {
@@ -26,6 +26,8 @@ class BaseWeapon {
       xOffset: 0.5,
       yOffset: 0.5
     };
+
+    // window.setTimeout(() => this.body.remove(), 5000);
   }
 }
 

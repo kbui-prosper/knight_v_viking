@@ -26,6 +26,7 @@ class BaseCharacter {
     this.moving = false;
     this.engine = engine;
     this.Weapon = charType === window.knight ? Sword : Axe;
+    this.weaponCount = 5;
 
     this.body = Bodies.rectangle(
       Math.random() * 800 + 100, 300,
@@ -190,6 +191,10 @@ class BaseCharacter {
   }
 
   attack () {
+    if (!this.weaponCount) {
+      return;
+    }
+    this.weaponCount -= 1;
     const weapon = new this.Weapon(
       this.body.position,
       this.faceDirection,
@@ -199,6 +204,7 @@ class BaseCharacter {
       this.engine.world,
       weapon.body
     );
+    window.setTimeout(() => { this.weaponCount += 1; }, 5000);
   }
 }
 
