@@ -185,13 +185,14 @@ class BaseCharacter {
   }
 
   attack () {
-    let { x, y } = this.body.position;
-    x += this.faceDirection === 'left' ? -25 : 25;
-    y -= 45;
-    const sword = new this.Weapon({ x, y });
+    const weapon = new this.Weapon(
+      this.body.position,
+      this.faceDirection,
+      this.body.velocity
+    );
     World.add(
       this.engine.world,
-      sword.body
+      weapon.body
     );
   }
 }
