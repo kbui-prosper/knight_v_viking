@@ -82,11 +82,10 @@ canvas {
   opacity: 0.8;
 }
 
-// --------- victory-announcement ---------
+// --------- modal ---------
 
-.victory-announcement {
+.modal {
   display: flex;
-  visibility: hidden;
   align-items: center;
   justify-content: center;
   z-index: 100;
@@ -101,5 +100,55 @@ canvas {
   background: rgba(75, 75, 75, 0.8);
   height: 250px;
   width: 750px;
+  border-radius: 20px;
+}
+
+// --------- victory-announcement ---------
+
+.victory-announcement {
+  visibility: hidden;
+}
+
+// --------- welcome-screen ---------
+
+.welcome-screen {
+  visibility: hidden;
+}
+
+.start-game {
+  background: #2c3e50;
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  font-size: 30px;
+  border-radius: 20px;
+}
+
+// --------- directions ---------
+
+.directions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+  position: absolute;
+  left:50%;
+  top:50%;
+  transform: translate(-50%, -50%);
+  height: 75px;
+  width: 900px;
+  border-radius: 20px;
+
+}
+
+.key {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 75px;
+  height: 75px;
+  background: white;
+  color: #333;
   border-radius: 20px;
 }
