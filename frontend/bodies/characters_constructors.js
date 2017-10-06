@@ -136,7 +136,6 @@ class BaseCharacter {
       },
       delay
     );
-    console.log(delay);
   }
 
   startAnimation () {

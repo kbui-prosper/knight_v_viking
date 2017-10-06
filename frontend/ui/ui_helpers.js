@@ -13,7 +13,6 @@ export const updateHealth = (charType, health) => {
 };
 
 export const showVictoryAnnouncement = (winner) => {
-  console.log('LMFAO');
   const victoryAnnouncement = document.querySelector('.victory-announcement');
   victoryAnnouncement.innerHTML = `The ${winner} has emerged victorious`;
   document.querySelector('.welcome-screen').style.visibility = 'visible';
