@@ -1,7 +1,7 @@
-import { Bodies, World } from 'matter-js';
+import { Bodies, World, Composite } from 'matter-js';
 
 import { Sword, Axe } from './weapons_constructors';
-import { updateWeaponCount, displayStartGameButton } from '../ui/ui_helpers';
+import { updateWeaponCount, updateHealth, displayStartGameButton } from '../ui/ui_helpers';
 
 window.knight.keyMap = {
   left: 65, //'q',
@@ -61,7 +61,53 @@ class BaseCharacter {
     updateWeaponCount(this.weaponString, this.weaponCount);
   }
 
+  reset () {
+    Composite.remove(this.engine.world, this.body);
+    this.onGround = false;
+    this.moving = false;
+    this.weaponCount = 3;
+    this.health = 100;
+    this.dead = false;
+    this.faceDirection = this.charType === window.knight ? 'right' : 'left';
 
+    this.body = Bodies.rectangle(
+      this.charType === window.knight ? 300 : 900, 300,
+      50, 90,
+      {
+        label: this.charType === window.knight ? 'knight' : 'viking',
+        inertia: 'Infinity',
+        chamfer: { radius: 15 },
+        render: {
+          lineWidth: 5,
+          sprite: {
+            texture: this.charType.idlePNGs[this.faceDirection][0],
+            xScale: 0.1,
+            yScale: 0.1,
+            xOffset: this.charType === window.knight ? -0.2 : 0.2,
+            yOffset: -0.02
+          }
+        }
+      }
+    );
+
+    World.add(
+      this.engine.world,
+      [
+        this.body
+      ]
+    );
+
+    this.body.charTypeClass = this;
+
+    this.setDefaultFriction();
+    this.startAnimation();
+    // this.setKeyListeners();
+    updateWeaponCount(this.weaponString, this.weaponCount);
+    updateHealth(
+      this.charType === window.knight ? 'knight' : 'viking',
+      100
+    );
+  }
 
   loadAnimationSprites () {
     let delay = 1000;
