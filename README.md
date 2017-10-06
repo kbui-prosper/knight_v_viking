@@ -8,4 +8,4 @@ The Knight throws swords and the Viking throws axes. Swords are lighter and fast
 
 Each character spawns with 100 health. Game is over when either player reaches 0 health.
 
-![Preview]()
+![Preview](https://github.com/khaivubui/knight_v_viking/blob/master/docs/screenshot.png)
