@@ -84,5 +84,5 @@ Each character spawns with 100 health. Game is over when either player reaches 0
 - [x] Add winning condition and add winning notification
 
 #### Day 5 - Friday
-- [ ] Debug
-- [ ] Polish styling
+- [x] Debug
+- [x] Polish styling
