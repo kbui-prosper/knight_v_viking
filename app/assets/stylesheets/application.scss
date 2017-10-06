@@ -106,19 +106,10 @@ canvas {
   background: rgba(75, 75, 75, 0.8);
 }
 
-// --------- victory-announcement ---------
-
-.victory-announcement {
-  height: 250px;
-  width: 750px;
-  border-radius: 20px;
-  visibility: hidden;
-  z-index: 1000;
-}
-
 // --------- welcome-screen ---------
 
 .welcome-screen {
+  flex-direction: column;
   visibility: visible;
   z-index: 200;
   height: 660px;

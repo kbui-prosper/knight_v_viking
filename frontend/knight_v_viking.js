@@ -1,4 +1,4 @@
-import { Engine, Render, World, Bodies } from 'matter-js';
+import { Engine, Render, World, Bodies, Composite } from 'matter-js';
 
 import {
   leftWall, rightWall, ground, ceiling
@@ -42,6 +42,11 @@ document.addEventListener('DOMContentLoaded', () => {
     ]
   );
 
+  // test
+  // window.setTimeout(() => addBalls(engine, 100), 2000);
+  // addBalls(engine, 200);
+  // test
+
   // Characters
   const knight = new Knight(engine);
   const viking = new Viking(engine);
@@ -53,16 +58,16 @@ document.addEventListener('DOMContentLoaded', () => {
     ]
   );
 
-  // test
-  // window.setTimeout(() => addBalls(engine, 100), 2000);
-  // addBalls(engine, 200);
-  // test
-
   Engine.run(engine);
   Render.run(render);
   collisionEventHandlers(engine);
 
   document.querySelector('.start-game').addEventListener('click', () => {
+    // if (knight || viking) {
+    //   Composite.remove(engine.world, knight.body);
+    //   Composite.remove(engine.world, knight.body);
+    // }
+
     knight.setKeyListeners();
     viking.setKeyListeners();
     document.querySelector('.welcome-screen').style.visibility = 'hidden';

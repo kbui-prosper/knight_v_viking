@@ -16,7 +16,8 @@ export const showVictoryAnnouncement = (winner) => {
   console.log('LMFAO');
   const victoryAnnouncement = document.querySelector('.victory-announcement');
   victoryAnnouncement.innerHTML = `The ${winner} has emerged victorious`;
-  victoryAnnouncement.style.visibility = 'visible';
+  document.querySelector('.welcome-screen').style.visibility = 'visible';
+  document.querySelector('.start-game').style.visibility = 'visible';
 };
 
 export const displayStartGameButton = () => {
