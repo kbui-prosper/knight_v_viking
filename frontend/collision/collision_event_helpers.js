@@ -52,7 +52,7 @@ export const weaponHitHander = (bodyA, bodyB) => {
       charTypeClass.stop();
       charTypeClass.die();
       showVictoryAnnouncement(
-        bodyB.label === 'knight' ? 'Viking' : 'Knight'
+        bodyA.label === 'knight' ? 'Viking' : 'Knight'
       );
     }
   }

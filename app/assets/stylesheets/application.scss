@@ -88,7 +88,6 @@ canvas {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 100;
   position: absolute;
   left:50%;
   top:50%;
@@ -107,12 +106,14 @@ canvas {
 
 .victory-announcement {
   visibility: hidden;
+  z-index: 1000;
 }
 
 // --------- welcome-screen ---------
 
 .welcome-screen {
   visibility: hidden;
+  z-index: 100;
 }
 
 .start-game {
