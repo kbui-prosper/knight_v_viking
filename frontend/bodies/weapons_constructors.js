@@ -24,7 +24,7 @@ class BaseWeapon {
       weaponType === window.sword ? swordVertices : axeVertices,
       {
         label: weaponType === window.sword ? 'sword' : 'axe',
-        restitution: weaponType === window.sword ? 0.5 : 1,
+        restitution: weaponType === window.sword ? 0.5 : 1.2,
         torque: direction === 'right' ? 3 : -3,
         force: {
           x: velocity.x / 100 + (direction === 'right' ? 0.01 : -0.01),
