@@ -57,9 +57,11 @@ class BaseCharacter {
     this.setDefaultFriction();
     this.startAnimation();
     this.loadAnimationSprites();
-    this.setKeyListeners();
+    // this.setKeyListeners();
     updateWeaponCount(this.weaponString, this.weaponCount);
   }
+
+
 
   loadAnimationSprites () {
     let delay = 500;

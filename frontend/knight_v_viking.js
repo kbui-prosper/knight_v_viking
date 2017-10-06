@@ -61,4 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
   Engine.run(engine);
   Render.run(render);
   collisionEventHandlers(engine);
+
+  document.querySelector('.start-game').addEventListener('click', () => {
+    knight.setKeyListeners();
+    viking.setKeyListeners();
+    document.querySelector('.welcome-screen').style.visibility = 'hidden';
+  });
 });
