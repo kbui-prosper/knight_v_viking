@@ -354,7 +354,9 @@ class BaseCharacter {
       );
 
       window.setTimeout(() => {
-        this.weaponCount += 1;
+        if (this.weaponCount < 3) {
+          this.weaponCount += 1;
+        }
         updateWeaponCount(this.weaponString, this.weaponCount);
       }, 5000);
     }, 100);
