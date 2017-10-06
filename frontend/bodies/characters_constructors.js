@@ -115,7 +115,7 @@ class BaseCharacter {
   }
 
   loadAnimationSprites () {
-    let delay = 1000;
+    let delay = 2000;
     const deltaDelay = 75;
     this.charType.idlePNGs.left.forEach(sprite => {
       delay += deltaDelay;
