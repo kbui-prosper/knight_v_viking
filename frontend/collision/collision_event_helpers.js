@@ -1,4 +1,7 @@
-import { updateHealth } from '../ui/ui_helpers';
+import {
+  updateHealth,
+  showVictoryAnnouncement
+} from '../ui/ui_helpers';
 
 export const onWallHandler = (bodyA, bodyB) => {
   if ((bodyA.label === 'knight' || bodyA.label === 'viking') &&
@@ -48,6 +51,9 @@ export const weaponHitHander = (bodyA, bodyB) => {
     if (charTypeClass.health <= 0) {
       charTypeClass.stop();
       charTypeClass.die();
+      showVictoryAnnouncement(
+        bodyB.label === 'knight' ? 'Viking' : 'Knight'
+      );
     }
   }
   if ((bodyB.label === 'knight' && bodyA.label === 'axe') ||
@@ -58,6 +64,9 @@ export const weaponHitHander = (bodyA, bodyB) => {
     if (charTypeClass.health <= 0) {
       charTypeClass.stop();
       charTypeClass.die();
+      showVictoryAnnouncement(
+        bodyB.label === 'knight' ? 'Viking' : 'Knight'
+      );
     }
   }
 };

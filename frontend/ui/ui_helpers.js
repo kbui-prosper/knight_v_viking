@@ -11,3 +11,10 @@ export const updateHealth = (charType, health) => {
   const healthBar = document.querySelector(`.${charType}-health-bar`);
   healthBar.style.width = `${health * 2}px`;
 };
+
+export const showVictoryAnnouncement = (winner) => {
+  console.log('LMFAO');
+  const victoryAnnouncement = document.querySelector('.victory-announcement');
+  victoryAnnouncement.innerHTML = `The ${winner} has emerged victorious`;
+  victoryAnnouncement.style.visibility = 'visible';
+};
