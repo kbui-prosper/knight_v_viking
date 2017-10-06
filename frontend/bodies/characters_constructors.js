@@ -1,7 +1,11 @@
 import { Bodies, World, Composite } from 'matter-js';
 
 import { Sword, Axe } from './weapons_constructors';
-import { updateWeaponCount, updateHealth, displayStartGameButton } from '../ui/ui_helpers';
+import {
+  updateWeaponCount,
+  updateHealth,
+  displayStartGameButton
+} from '../ui/ui_helpers';
 
 window.knight.keyMap = {
   left: 65, //'q',
@@ -62,6 +66,7 @@ class BaseCharacter {
   }
 
   reset () {
+    this.stop();
     Composite.remove(this.engine.world, this.body);
     this.onGround = false;
     this.moving = false;
