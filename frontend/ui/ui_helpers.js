@@ -18,3 +18,7 @@ export const showVictoryAnnouncement = (winner) => {
   victoryAnnouncement.innerHTML = `The ${winner} has emerged victorious`;
   victoryAnnouncement.style.visibility = 'visible';
 };
+
+export const displayStartGameButton = () => {
+  document.querySelector('.start-game').style.visibility = 'visible';
+};

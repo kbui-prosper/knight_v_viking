@@ -66,5 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
     knight.setKeyListeners();
     viking.setKeyListeners();
     document.querySelector('.welcome-screen').style.visibility = 'hidden';
+    document.querySelector('.start-game').style.visibility = 'hidden';
   });
 });

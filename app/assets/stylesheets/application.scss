@@ -29,6 +29,7 @@ canvas {
 
 .info {
   margin: 0 auto;
+  margin-top: 10px;
   display: flex;
   justify-content: space-between;
   width: 1100px;
@@ -119,12 +120,13 @@ canvas {
 
 .welcome-screen {
   visibility: visible;
-  z-index: 900;
-  height: 650px;
+  z-index: 200;
+  height: 660px;
   width: 1200px;
 }
 
 .start-game {
+  visibility: hidden;
   background: #2980b9;
   color: white;
   border: none;
@@ -164,7 +166,8 @@ canvas {
   align-items: center;
   width: 75px;
   height: 75px;
-  border: 1px solid rgba(125, 125, 125, 0.8);
-  color: rgba(125, 125, 125, 0.8);
+  border: 1px solid rgba(256, 256, 256, 0.6);
+  color: rgba(256, 256, 256, 0.6);
   border-radius: 20px;
+  z-index: 300;
 }

@@ -1,7 +1,7 @@
 import { Bodies, World } from 'matter-js';
 
 import { Sword, Axe } from './weapons_constructors';
-import { updateWeaponCount } from '../ui/ui_helpers';
+import { updateWeaponCount, displayStartGameButton } from '../ui/ui_helpers';
 
 window.knight.keyMap = {
   left: 65, //'q',
@@ -132,6 +132,7 @@ class BaseCharacter {
     window.setTimeout(
       () => {
         this.body.render.sprite.texture = this.charType.jumpPNGs.right[0];
+        displayStartGameButton();
       },
       delay
     );
