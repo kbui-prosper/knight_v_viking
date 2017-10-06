@@ -56,8 +56,83 @@ class BaseCharacter {
 
     this.setDefaultFriction();
     this.startAnimation();
+    this.loadAnimationSprites();
     this.setKeyListeners();
     updateWeaponCount(this.weaponString, this.weaponCount);
+  }
+
+  loadAnimationSprites () {
+    let delay = 0;
+    const deltaDelay = 75;
+    this.charType.idlePNGs.left.forEach(sprite => {
+      delay += deltaDelay;
+      window.setTimeout(
+        () => {
+          this.body.render.sprite.texture = sprite;
+        },
+        delay
+      );
+    });
+    this.charType.idlePNGs.right.forEach(sprite => {
+      delay += deltaDelay;
+      window.setTimeout(
+        () => {
+          this.body.render.sprite.texture = sprite;
+        },
+        delay
+      );
+    });
+    this.charType.walkPNGs.left.forEach(sprite => {
+      delay += deltaDelay;
+      window.setTimeout(
+        () => {
+          this.body.render.sprite.texture = sprite;
+        },
+        delay
+      );
+    });
+    this.charType.walkPNGs.right.forEach(sprite => {
+      delay += deltaDelay;
+      window.setTimeout(
+        () => {
+          this.body.render.sprite.texture = sprite;
+        },
+        delay
+      );
+    });
+    this.charType.attackPNGs.left.forEach(sprite => {
+      delay += deltaDelay;
+      window.setTimeout(
+        () => {
+          this.body.render.sprite.texture = sprite;
+        },
+        delay
+      );
+    });
+    this.charType.attackPNGs.right.forEach(sprite => {
+      delay += deltaDelay;
+      window.setTimeout(
+        () => {
+          this.body.render.sprite.texture = sprite;
+        },
+        delay
+      );
+    });
+
+    delay += deltaDelay;
+    window.setTimeout(
+      () => {
+        this.body.render.sprite.texture = this.charType.jumpPNGs.left[0];
+      },
+      delay
+    );
+    delay += deltaDelay;
+    window.setTimeout(
+      () => {
+        this.body.render.sprite.texture = this.charType.jumpPNGs.right[0];
+      },
+      delay
+    );
   }
 
   startAnimation () {
