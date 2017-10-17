@@ -107,7 +107,7 @@ canvas {
   font-size: 30px;
   font-weight: 100;
   color: white;
-  background: rgba(75, 75, 75, 0.5);
+  background: rgba(0, 0, 0, 0.8);
 }
 
 // --------- welcome-screen ---------
@@ -161,7 +161,8 @@ canvas {
   align-items: center;
   width: 75px;
   height: 75px;
-  border: 1px solid rgba(256, 256, 256, 0.8);
+  font-weight: 700;
+  border: 2px solid rgba(256, 256, 256, 0.8);
   color: rgba(256, 256, 256, 0.8);
   border-radius: 20px;
   z-index: 300;
