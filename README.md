@@ -1,5 +1,7 @@
 # Knight v Viking
 
+[live](https://knightvviking.herokuapp.com/)
+
 ## Overview
 
 Knight v Viking is a 2-player 2D real-time action platformer game. Each player controls a character (either a Knight or a Viking) using keyboard controls (Attack, Jump, ◀️, ▶️).
